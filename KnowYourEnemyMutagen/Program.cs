@@ -38,6 +38,7 @@ namespace KnowYourEnemyMutagen
 
         public static void RunPatch(SynthesisState<ISkyrimMod, ISkyrimModGetter> state)
         {
+            // Helper Functions
             float adjust_damage_mod_magnitude(float magnitude, float scale)
             {
                 if (magnitude == 1) return magnitude;
@@ -50,6 +51,17 @@ namespace KnowYourEnemyMutagen
                     return 1 / adjust_damage_mod_magnitude(1 / magnitude, scale);
                 }
             }
+
+            float adjust_magic_resist_magnitude(float magnitude, float scale)
+            {
+                if (magnitude == 0) return magnitude;
+                return magnitude * scale;
+            }
+
+            // ******************
+            // Know Your Enemy Patcher
+            // ******************
+
             // ***** Part 0 *****
             // Reading JSON and converting it to a normal list because .Contains() is weird in Newtonsoft.JSON
             JObject creature_rules = JObject.Parse(File.ReadAllText("creature_rules.json"));
@@ -61,6 +73,7 @@ namespace KnowYourEnemyMutagen
             List<string> resistances_and_weaknesses = new List<string>();
             List<string> abilities_to_clean = new List<string>();
             List<string> perks_to_clean = new List<string>();
+            List<string> kye_perk_names = new List<string>();
             List<string> kye_ability_names = new List<string>();
             foreach (string? rw in misc["resistances_and_weaknesses"]!)
             {
@@ -73,6 +86,10 @@ namespace KnowYourEnemyMutagen
             foreach(string? pe in misc["perks_to_clean"]!)
             {
                 if (pe != null) perks_to_clean.Add(pe);
+            }
+            foreach(string? pe in misc["kye_perk_names"]!)
+            {
+                if (pe != null) kye_perk_names.Add(pe);
             }
             foreach(string? ab in misc["kye_ability_names"]!)
             {
@@ -131,9 +148,9 @@ namespace KnowYourEnemyMutagen
             {
                 foreach (var perk in state.LoadOrder.PriorityOrder.WinningOverrides<IPerkGetter>())
                 {
-                    if (perk.EditorID != null && kye_ability_names.Contains(perk.EditorID) && perk.Effects.Any())
+                    if (perk.EditorID != null && kye_perk_names.Contains(perk.EditorID) && perk.Effects.Any())
                     {
-                        foreach(var eff in perk.Effects)
+                        foreach (var eff in perk.Effects)
                         {
                             if (!(eff is PerkModifyValue modValue)) continue;
                             if (modValue.EntryPoint != APerkEntryPointEffect.EntryType.ModIncomingDamage) continue;
@@ -143,7 +160,30 @@ namespace KnowYourEnemyMutagen
                         }
                     }
                 }
+
+            // ***** PART 2b *****
+            // Adjust KYE's magical effects according to effect_intensity
+
+                foreach (var spell in state.LoadOrder.PriorityOrder.WinningOverrides<Mutagen.Bethesda.Skyrim.ISpellGetter>())
+                {
+                    if (spell.EditorID != null && kye_ability_names.Contains(spell.EditorID))
+                    {
+                        Mutagen.Bethesda.Skyrim.Spell s = spell.DeepCopy();
+                        foreach(var eff in s.Effects)
+                        {
+                            eff.BaseEffect.TryResolve(state.LinkCache, out var baseEffect);
+                            if (baseEffect != null && baseEffect.EditorID != null && resistances_and_weaknesses.Contains(baseEffect.EditorID) && eff.Data != null)
+                            {
+                                float current_magnitude = eff.Data.Magnitude;
+                                eff.Data.Magnitude = adjust_magic_resist_magnitude(current_magnitude, effect_intensity);
+                                state.PatchMod.Spells.GetOrAddAsOverride(s);
+                            }
+                        }
+                    }
+                }
             }
+
+
         }
     }
 }
