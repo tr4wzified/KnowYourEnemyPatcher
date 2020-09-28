@@ -143,7 +143,7 @@ namespace KnowYourEnemyMutagen
             }
 
             // ***** PART 2a *****
-            // Adjust KYE's magical effects according to effect_intensity
+            // Adjust KYE's physical effects according to effect_intensity
             if (effect_intensity != 1)
             {
                 foreach (var perk in state.LoadOrder.PriorityOrder.WinningOverrides<IPerkGetter>())
