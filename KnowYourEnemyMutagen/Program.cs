@@ -66,9 +66,13 @@ namespace KnowYourEnemyMutagen
             // Reading JSON and converting it to a normal list because .Contains() is weird in Newtonsoft.JSON
             JObject creature_rules = JObject.Parse(File.ReadAllText("creature_rules.json"));
             JObject misc = JObject.Parse(File.ReadAllText("misc.json"));
-            JObject e = JObject.Parse(File.ReadAllText("effect_intensity.json"));
+            JObject e = JObject.Parse(File.ReadAllText("settings.json"));
             float effect_intensity = (float)e["effect_intensity"]!;
-            Console.WriteLine("Effect Intensity: " + effect_intensity);
+            bool patchSilverPerk = (bool)e["patch_silver_perk"]!;
+            Console.WriteLine("*** DETECTED SETTINGS ***");
+            Console.WriteLine("patch_silver_perk: " + patchSilverPerk);
+            Console.WriteLine("effect_intensity: " + effect_intensity);
+            Console.WriteLine("*************************");
 
             List<string> resistances_and_weaknesses = new List<string>();
             List<string> abilities_to_clean = new List<string>();
@@ -183,7 +187,46 @@ namespace KnowYourEnemyMutagen
                 }
             }
 
+            // ***** PART 3 *****
+            // Edit the effect of silver weapons
+            if (patchSilverPerk)
+            {
+                if (state.LoadOrder.ContainsKey(ModKey.FromNameAndExtension("Skyrim Immersive Creatures.esp")))
+                    Console.WriteLine("WARNING: Silver Perk is being patched, but Skyrim Immersive Creatures has been detected in your load order. Know Your Enemy's silver weapon effects will NOT work against new races added by SIC.");
 
+                FormLink<Perk> silverLink = new FormLink<Perk>(new FormKey("Skyrim.esm", 0x10D685));
+                FormLink<Perk> dummySilverLink = new FormLink<Perk>(new FormKey("know_your_enemy.esp", 0x0BBE10));
+                if (silverLink.TryResolve(state.LinkCache, out var silverPerk))
+                {
+                    Console.WriteLine("silverPerk resolved");
+                    if (dummySilverLink.TryResolve(state.LinkCache, out var dummySilverPerk))
+                    {
+                        Console.WriteLine("dummySilverPerk resolved");
+                        Perk kyePerk = silverPerk.DeepCopy();
+                        kyePerk.Effects.Clear();
+                        kyePerk.Effects.AddRange(dummySilverPerk.Effects);
+                        state.PatchMod.Perks.GetOrAddAsOverride(kyePerk);
+                    }
+                }
+
+                //if(state.LinkCache.)
+
+                //Perk kye_perk = state.PatchMod.Perks.AddNew();
+                /*
+                if(state.PatchMod.Perks.RecordCache.TryGetValue(FormKey.Factory("10D685:Skyrim.esm"), out var silverPerk))
+                {
+                    Console.WriteLine("SILVER PERK FOUDN!@!!");
+                    if (silverPerk != null)
+                    {
+                        kyePerk = silverPerk.DeepCopy();
+                        kyePerk.Effects.Clear();
+                        kyePerk.Effects.AddRange(silverPerk.Effects);
+                        state.PatchMod.Perks.GetOrAddAsOverride(kyePerk);
+                    }
+                }
+                */
+
+            }
         }
     }
 }
