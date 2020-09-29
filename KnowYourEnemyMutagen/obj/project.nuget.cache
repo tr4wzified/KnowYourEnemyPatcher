@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "JUsPcBOQIJw5vQOBAozowXlTLhSGk7ewqBp7bVXyGYKn0RHty+zQKCM/4Bs+x/MqWw0FkkQt5j8/1UyKp9+CYw==",
+  "dgSpecHash": "FdL2mNOUIUuVCvgxdlT71n7lFRgxNWvYwGrshWkLtucHhwL4FKG5LZ3sLuRlSb97KeR0Ik3DRQBtWZKNuCrVfA==",
   "success": true,
   "projectFilePath": "C:\\Users\\user\\Documents\\KnowYourEnemyMutagen\\KnowYourEnemyMutagen\\KnowYourEnemyMutagen\\KnowYourEnemyMutagen.csproj",
   "expectedPackageFiles": [
@@ -22,6 +22,7 @@
     "C:\\Users\\user\\.nuget\\packages\\microsoft.win32.registry\\5.0.0-preview.6.20305.6\\microsoft.win32.registry.5.0.0-preview.6.20305.6.nupkg.sha512",
     "C:\\Users\\user\\.nuget\\packages\\mutagen.bethesda\\0.18.0\\mutagen.bethesda.0.18.0.nupkg.sha512",
     "C:\\Users\\user\\.nuget\\packages\\mutagen.bethesda.core\\0.18.0\\mutagen.bethesda.core.0.18.0.nupkg.sha512",
+    "C:\\Users\\user\\.nuget\\packages\\mutagen.bethesda.formkeys.skyrimse\\1.0.0\\mutagen.bethesda.formkeys.skyrimse.1.0.0.nupkg.sha512",
     "C:\\Users\\user\\.nuget\\packages\\mutagen.bethesda.kernel\\0.18.0\\mutagen.bethesda.kernel.0.18.0.nupkg.sha512",
     "C:\\Users\\user\\.nuget\\packages\\mutagen.bethesda.oblivion\\0.18.0\\mutagen.bethesda.oblivion.0.18.0.nupkg.sha512",
     "C:\\Users\\user\\.nuget\\packages\\mutagen.bethesda.skyrim\\0.18.0\\mutagen.bethesda.skyrim.0.18.0.nupkg.sha512",
@@ -119,16 +120,5 @@
     "C:\\Users\\user\\.nuget\\packages\\wabbajack.common\\2.2.1.1\\wabbajack.common.2.2.1.1.nupkg.sha512",
     "C:\\Users\\user\\.nuget\\packages\\yamldotnet\\8.1.2\\yamldotnet.8.1.2.nupkg.sha512"
   ],
-  "logs": [
-    {
-      "code": "NU1603",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Mutagen.Bethesda.Synthesis 0.8.3 depends on Mutagen.Bethesda.Kernel (>= 0.17.1-dev) but Mutagen.Bethesda.Kernel 0.17.1-dev was not found. An approximate best match of Mutagen.Bethesda.Kernel 0.18.0 was resolved.",
-      "libraryId": "Mutagen.Bethesda.Kernel",
-      "targetGraphs": [
-        ".NETCoreApp,Version=v3.1"
-      ]
-    }
-  ]
+  "logs": []
 }
