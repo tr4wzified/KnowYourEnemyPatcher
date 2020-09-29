@@ -1,7 +1,10 @@
-﻿0,09 - Steam Library found at S:\SteamLibrary\steamapps
-0,09 - Total number of Steam Libraries found: 1
-0,09 - Searching for Steam Games in S:\SteamLibrary\steamapps
-0,13 - Steam Game "Project CARS" (234630) is not supported, skipping
+﻿0,04 - Maximum amount of old logs reached (51 >= 50)
+0,06 - Found 1 old log files to delete
+0,08 - Deleted 1 log files, failed to delete 0 logs
+0,11 - Steam Library found at S:\SteamLibrary\steamapps
+0,11 - Total number of Steam Libraries found: 1
+0,11 - Searching for Steam Games in S:\SteamLibrary\steamapps
+0,14 - Steam Game "Project CARS" (234630) is not supported, skipping
 0,14 - Steam Game "SteamVR" (250820) is not supported, skipping
 0,14 - Steam Game "Waltz of the Wizard" (436820) is not supported, skipping
 0,14 - Steam Game "VRChat" (438100) is not supported, skipping
@@ -10,24 +13,22 @@
 0,14 - Steam Game "NVIDIA® VR Funhouse" (468700) is not supported, skipping
 0,14 - Found Steam Game: "The Elder Scrolls V: Skyrim Special Edition" (489830) at S:\SteamLibrary\steamapps\common\Skyrim Special Edition
 0,14 - Found Steam Game: "The Elder Scrolls V: Skyrim VR" (611670) at S:\SteamLibrary\steamapps\common\SkyrimVR
-0,14 - Steam Game "Remnant: From the Ashes" (617290) is not supported, skipping
-0,14 - Steam Game "Beat Saber" (620980) is not supported, skipping
-0,14 - Steam Game "DeoVR Video Player" (837380) is not supported, skipping
-0,14 - Searching for Steam Games in c:\steam\steamapps
+0,15 - Steam Game "Remnant: From the Ashes" (617290) is not supported, skipping
+0,15 - Steam Game "Beat Saber" (620980) is not supported, skipping
+0,15 - Steam Game "DeoVR Video Player" (837380) is not supported, skipping
+0,15 - Searching for Steam Games in c:\steam\steamapps
 0,15 - Steam Game "OVR Advanced Settings" (1009850) is not supported, skipping
 0,15 - Steam Game "Tower Tag" (1187330) is not supported, skipping
 0,15 - Steam Game "Steamworks Common Redistributables" (228980) is not supported, skipping
-0,15 - Found Steam Game: "Stardew Valley" (413150) at c:\steam\steamapps\common\Stardew Valley
 0,15 - Steam Game "Rec Room" (471710) is not supported, skipping
 0,15 - Steam Game "Half-Life: Alyx" (546560) is not supported, skipping
+0,15 - Steam Game "Serious Sam VR: The First Encounter" (552450) is not supported, skipping
 0,15 - Steam Game "Blade & Sorcery" (629730) is not supported, skipping
 0,15 - Steam Game "Neos VR" (740250) is not supported, skipping
-0,15 - Steam Game "Hellblade: Senua's Sacrifice VR Edition" (747350) is not supported, skipping
-0,15 - Steam Game "GizmoVR Video Player" (768100) is not supported, skipping
 0,15 - Steam Game "BONEWORKS" (823500) is not supported, skipping
 0,15 - Steam Game "fpsVR" (908520) is not supported, skipping
-0,15 - Total number of Steam Games found: 3
+0,15 - Total number of Steam Games found: 2
 0,15 - Wabbajack.Common.StoreHandlers.StoreException: Could not open the GOG registry key!
 0,15 - Wabbajack.Common.StoreHandlers.StoreException: Could not Init the GOGHandler, check previous error messages!
-0,16 - Wabbajack.Common.StoreHandlers.StoreException: Path to the BethNet Directory from registry does not exists: C:\Program Files (x86)\Bethesda.net Launcher
-0,16 - Wabbajack.Common.StoreHandlers.StoreException: Could not Init the BethNetHandler, check previous error messages!
+0,15 - Wabbajack.Common.StoreHandlers.StoreException: Path to the BethNet Directory from registry does not exists: C:\Program Files (x86)\Bethesda.net Launcher
+0,15 - Wabbajack.Common.StoreHandlers.StoreException: Could not Init the BethNetHandler, check previous error messages!
