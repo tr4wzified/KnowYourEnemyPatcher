@@ -12,6 +12,7 @@ using Noggog;
 using HtmlAgilityPack;
 using Mutagen.Bethesda.FormKeys.SkyrimSE;
 using DynamicData;
+using Newtonsoft.Json;
 
 namespace KnowYourEnemyMutagen
 {
@@ -66,7 +67,7 @@ namespace KnowYourEnemyMutagen
 
             // ***** Part 0 *****
             // Reading JSON and converting it to a normal list because .Contains() is weird in Newtonsoft.JSON
-            JObject creature_rules = JObject.Parse(File.ReadAllText("creature_rules.json"));
+            JObject creature_rules_json = JObject.Parse(File.ReadAllText("creature_rules.json"));
             JObject misc = JObject.Parse(File.ReadAllText("misc.json"));
             JObject e = JObject.Parse(File.ReadAllText("settings.json"));
             float effect_intensity = (float)e["effect_intensity"]!;
@@ -89,18 +90,20 @@ namespace KnowYourEnemyMutagen
             {
                 if (ab != null) abilities_to_clean.Add(ab);
             }
-            foreach(string? pe in misc["perks_to_clean"]!)
+            foreach (string? pe in misc["perks_to_clean"]!)
             {
                 if (pe != null) perks_to_clean.Add(pe);
             }
-            foreach(string? pe in misc["kye_perk_names"]!)
+            foreach (string? pe in misc["kye_perk_names"]!)
             {
                 if (pe != null) kye_perk_names.Add(pe);
             }
-            foreach(string? ab in misc["kye_ability_names"]!)
+            foreach (string? ab in misc["kye_ability_names"]!)
             {
                 if (ab != null) kye_ability_names.Add(ab);
             }
+            Dictionary<string, string[]> creature_rules = JsonConvert.DeserializeObject<Dictionary<string, string[]>>(File.ReadAllText("creature_rules.json"));
+
             
             
 
@@ -217,6 +220,7 @@ namespace KnowYourEnemyMutagen
             }
 
             // ***** PART 4 *****
+            // Adjust traits to accommodate CACO if present
             if (state.LoadOrder.ContainsKey(ModKey.FromNameAndExtension("Complete Alchemy & Cooking Overhaul.esp")))
             {
                 Console.WriteLine("CACO detected! Adjusting kye_ab_undead and kye_ab_ghostly spells.");
@@ -225,7 +229,7 @@ namespace KnowYourEnemyMutagen
                 if (state.LinkCache.TryLookup<Mutagen.Bethesda.Skyrim.ISpellGetter>(kye_ab_ghostly_key, out var kye_ab_ghostly) && kye_ab_ghostly != null)
                 {
                     Mutagen.Bethesda.Skyrim.Spell kye_ab_ghostly_caco = kye_ab_ghostly.DeepCopy();
-                    foreach(var eff in kye_ab_ghostly_caco.Effects)
+                    foreach (var eff in kye_ab_ghostly_caco.Effects)
                     {
                         if (eff.Data == null) continue;
                         eff.BaseEffect.TryResolve(state.LinkCache, out var baseEffect);
@@ -244,7 +248,7 @@ namespace KnowYourEnemyMutagen
                 if (state.LinkCache.TryLookup<Mutagen.Bethesda.Skyrim.ISpellGetter>(kye_ab_undead_key, out var kye_ab_undead) && kye_ab_undead != null)
                 {
                     Mutagen.Bethesda.Skyrim.Spell kye_ab_undead_caco = kye_ab_undead.DeepCopy();
-                    foreach(var eff in kye_ab_undead_caco.Effects)
+                    foreach (var eff in kye_ab_undead_caco.Effects)
                     {
                         if (eff.Data == null) continue;
                         eff.BaseEffect.TryResolve(state.LinkCache, out var baseEffect);
@@ -259,7 +263,26 @@ namespace KnowYourEnemyMutagen
                 {
                     Console.WriteLine("WARNING! CACO detected but failed to patch kye_ab_undead_caco spell. Do you have know_your_enemy.esp active in the load order?");
                 }
+            }
 
+                // ***** PART 5 *****
+                // Add the traits to NPCs
+
+            foreach(var npc in state.LoadOrder.PriorityOrder.WinningOverrides<Mutagen.Bethesda.Skyrim.INpcGetter>())
+            {
+                if (npc.Configuration.TemplateFlags.HasFlag(Mutagen.Bethesda.Skyrim.NpcConfiguration.TemplateFlag.SpellList)) continue;
+
+                if (npc.Keywords != null && npc.Keywords.Contains(Skyrim.Keyword.ActorTypeGhost))
+                {
+                    foreach(KeyValuePair<string, string[]> entry in creature_rules)
+                    {
+                        Console.WriteLine(entry.Key + " is Key");
+                        foreach(string val in entry.Value)
+                        {
+                            Console.WriteLine(val + " belongs to it");
+                        }
+                    }
+                }
             }
         }
     }
