@@ -1,12 +1,12 @@
-﻿0,05 - Maximum amount of old logs reached (51 >= 50)
-0,07 - Found 1 old log files to delete
-0,09 - Deleted 1 log files, failed to delete 0 logs
+﻿0,04 - Maximum amount of old logs reached (51 >= 50)
+0,06 - Found 1 old log files to delete
+0,08 - Deleted 1 log files, failed to delete 0 logs
 0,12 - Steam Library found at S:\SteamLibrary\steamapps
 0,12 - Total number of Steam Libraries found: 1
 0,12 - Searching for Steam Games in S:\SteamLibrary\steamapps
-0,14 - Steam Game "Project CARS" (234630) is not supported, skipping
-0,14 - Steam Game "SteamVR" (250820) is not supported, skipping
-0,14 - Steam Game "Waltz of the Wizard" (436820) is not supported, skipping
+0,15 - Steam Game "Project CARS" (234630) is not supported, skipping
+0,15 - Steam Game "SteamVR" (250820) is not supported, skipping
+0,15 - Steam Game "Waltz of the Wizard" (436820) is not supported, skipping
 0,15 - Steam Game "VRChat" (438100) is not supported, skipping
 0,15 - Steam Game "The Body VR: Journey Inside a Cell" (451980) is not supported, skipping
 0,15 - Steam Game "Wave" (453000) is not supported, skipping

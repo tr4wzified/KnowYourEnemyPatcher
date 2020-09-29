@@ -13,6 +13,7 @@ using HtmlAgilityPack;
 using Mutagen.Bethesda.FormKeys.SkyrimSE;
 using DynamicData;
 using Newtonsoft.Json;
+using Wabbajack;
 
 namespace KnowYourEnemyMutagen
 {
@@ -64,6 +65,12 @@ namespace KnowYourEnemyMutagen
             // ******************
             // Know Your Enemy Patcher
             // ******************
+
+            Dictionary<string, Perk> perks = new Dictionary<string, Perk>();
+            if (state.LinkCache.TryLookup<IPerkGetter>(new FormKey("know_your_enemy.esp", 0x00AA5E), out var fatPerk) && fatPerk != null)
+                perks.Add("fat", fatPerk.DeepCopy());
+            if (state.LinkCache.TryLookup<IPerkGetter>(new FormKey("know_your_enemy.esp", 0x00AA60), out var fatPerk) && fatPerk != null)
+                perks.Add("fat", fatPerk.DeepCopy());
 
             // ***** Part 0 *****
             // Reading JSON and converting it to a normal list because .Contains() is weird in Newtonsoft.JSON
@@ -270,19 +277,50 @@ namespace KnowYourEnemyMutagen
 
             foreach(var npc in state.LoadOrder.PriorityOrder.WinningOverrides<Mutagen.Bethesda.Skyrim.INpcGetter>())
             {
+                // Skip if npc has spell list
                 if (npc.Configuration.TemplateFlags.HasFlag(Mutagen.Bethesda.Skyrim.NpcConfiguration.TemplateFlag.SpellList)) continue;
 
-                if (npc.Keywords != null && npc.Keywords.Contains(Skyrim.Keyword.ActorTypeGhost))
+                List<string> traits = new List<string>();
+
+                // If ghost
+                if (npc.Name != null && npc.Name.ToString() == "Ice Wraith" && npc.Keywords != null && npc.Keywords.Contains(Skyrim.Keyword.ActorTypeGhost))
                 {
-                    foreach(KeyValuePair<string, string[]> entry in creature_rules)
+                    /*foreach (KeyValuePair<string, string[]> entry in creature_rules)
                     {
-                        Console.WriteLine(entry.Key + " is Key");
-                        foreach(string val in entry.Value)
+                        //Console.WriteLine(entry.Key + " is Key");
+                        foreach (string val in entry.Value)
                         {
-                            Console.WriteLine(val + " belongs to it");
+                            //Console.WriteLine(val + " belongs to it");
                         }
                     }
+                    */
+                        traits.Add("ghostly");
                 }
+                // If npc race is in creature_rules
+                if (npc.Race.TryResolve(state.LinkCache, out var race) && race != null && race.EditorID != null && creature_rules.ContainsKey(race.EditorID.ToString())) {
+                    foreach(string trait in creature_rules[race.EditorID.ToString()])
+                    {
+                        traits.Add(trait);
+                    }
+                }
+                // If npc name is in creature_rules
+                if (npc.Name != null && creature_rules.ContainsKey(npc.Name.ToString()!))
+                {
+                    foreach(string trait in creature_rules[npc.Name.ToString()!])
+                    {
+                        traits.Add(trait);
+                    }
+                }
+                // If npc EDID is in creature_rules
+                if (npc.EditorID != null && creature_rules.ContainsKey(npc.EditorID.ToString()))
+                {
+                    foreach(string trait in creature_rules[npc.EditorID.ToString()])
+                    {
+                        traits.Add(trait);
+                    }
+                }
+                if(npc.Name != null)
+                    Console.WriteLine("NPC " + npc.Name.ToString()! + " receives traits: " + traits.Count);
             }
         }
     }
