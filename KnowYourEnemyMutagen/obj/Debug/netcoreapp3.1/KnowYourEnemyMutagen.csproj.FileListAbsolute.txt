@@ -55,7 +55,9 @@ C:\Users\user\Documents\KnowYourEnemyMutagen\KnowYourEnemyMutagen\KnowYourEnemyM
 C:\Users\user\Documents\KnowYourEnemyMutagen\KnowYourEnemyMutagen\KnowYourEnemyMutagen\bin\Debug\netcoreapp3.1\KnowYourEnemyMutagen.runtimeconfig.dev.json
 C:\Users\user\Documents\KnowYourEnemyMutagen\KnowYourEnemyMutagen\KnowYourEnemyMutagen\bin\Debug\netcoreapp3.1\KnowYourEnemyMutagen.dll
 C:\Users\user\Documents\KnowYourEnemyMutagen\KnowYourEnemyMutagen\KnowYourEnemyMutagen\bin\Debug\netcoreapp3.1\KnowYourEnemyMutagen.pdb
-C:\Users\user\Documents\KnowYourEnemyMutagen\KnowYourEnemyMutagen\KnowYourEnemyMutagen\obj\Debug\netcoreapp3.1\KnowYourEnemyMutagen.csproj.CoreCompileInputs.cache
 C:\Users\user\Documents\KnowYourEnemyMutagen\KnowYourEnemyMutagen\KnowYourEnemyMutagen\obj\Debug\netcoreapp3.1\KnowYourEnemyMutagen.dll
 C:\Users\user\Documents\KnowYourEnemyMutagen\KnowYourEnemyMutagen\KnowYourEnemyMutagen\obj\Debug\netcoreapp3.1\KnowYourEnemyMutagen.pdb
 C:\Users\user\Documents\KnowYourEnemyMutagen\KnowYourEnemyMutagen\KnowYourEnemyMutagen\obj\Debug\netcoreapp3.1\KnowYourEnemyMutagen.genruntimeconfig.cache
+C:\Users\user\Documents\KnowYourEnemyMutagen\KnowYourEnemyMutagen\KnowYourEnemyMutagen\bin\Debug\netcoreapp3.1\DynamicData.dll
+C:\Users\user\Documents\KnowYourEnemyMutagen\KnowYourEnemyMutagen\KnowYourEnemyMutagen\bin\Debug\netcoreapp3.1\Mutagen.Bethesda.FormKeys.SkyrimSE.dll
+C:\Users\user\Documents\KnowYourEnemyMutagen\KnowYourEnemyMutagen\KnowYourEnemyMutagen\obj\Debug\netcoreapp3.1\KnowYourEnemyMutagen.csproj.CoreCompileInputs.cache

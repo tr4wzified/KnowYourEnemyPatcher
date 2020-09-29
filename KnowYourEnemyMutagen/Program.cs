@@ -10,6 +10,8 @@ using Wabbajack.Common;
 using Mutagen.Bethesda.Oblivion;
 using Noggog;
 using HtmlAgilityPack;
+using Mutagen.Bethesda.FormKeys.SkyrimSE;
+using DynamicData;
 
 namespace KnowYourEnemyMutagen
 {
@@ -138,10 +140,10 @@ namespace KnowYourEnemyMutagen
                 {
                     foreach (var eff in perk.Effects)
                     {
-                        if (!(eff is PerkModifyValue modValue)) continue;
+                        if (!(eff is PerkEntryPointModifyValue modValue)) continue;
                         if (modValue.EntryPoint != APerkEntryPointEffect.EntryType.ModIncomingDamage) continue;
                         modValue.Value = 1f;
-                        modValue.Modification = PerkModifyValue.ModificationType.Set;
+                        modValue.Modification = PerkEntryPointModifyValue.ModificationType.Set;
                     }
                 }
             }
@@ -156,11 +158,11 @@ namespace KnowYourEnemyMutagen
                     {
                         foreach (var eff in perk.Effects)
                         {
-                            if (!(eff is PerkModifyValue modValue)) continue;
+                            if (!(eff is PerkEntryPointModifyValue modValue)) continue;
                             if (modValue.EntryPoint != APerkEntryPointEffect.EntryType.ModIncomingDamage) continue;
                             float current_magnitude = modValue.Value;
                             modValue.Value = adjust_damage_mod_magnitude(current_magnitude, effect_intensity);
-                            modValue.Modification = PerkModifyValue.ModificationType.Set;
+                            modValue.Modification = PerkEntryPointModifyValue.ModificationType.Set;
                         }
                     }
                 }
@@ -189,43 +191,29 @@ namespace KnowYourEnemyMutagen
 
             // ***** PART 3 *****
             // Edit the effect of silver weapons
+
             if (patchSilverPerk)
             {
                 if (state.LoadOrder.ContainsKey(ModKey.FromNameAndExtension("Skyrim Immersive Creatures.esp")))
                     Console.WriteLine("WARNING: Silver Perk is being patched, but Skyrim Immersive Creatures has been detected in your load order. Know Your Enemy's silver weapon effects will NOT work against new races added by SIC.");
 
-                FormLink<Perk> silverLink = new FormLink<Perk>(new FormKey("Skyrim.esm", 0x10D685));
-                FormLink<Perk> dummySilverLink = new FormLink<Perk>(new FormKey("know_your_enemy.esp", 0x0BBE10));
-                if (silverLink.TryResolve(state.LinkCache, out var silverPerk))
+                FormKey silverKey = Skyrim.Perk.SilverPerk;
+                FormKey dummySilverKey = new FormKey("know_your_enemy.esp", 0x0BBE10);
+                if (state.LinkCache.TryLookup<IPerkGetter>(silverKey, out var silverPerk) && silverPerk != null)
                 {
                     Console.WriteLine("silverPerk resolved");
-                    if (dummySilverLink.TryResolve(state.LinkCache, out var dummySilverPerk))
+                    if (state.LinkCache.TryLookup<IPerkGetter>(dummySilverKey, out var dummySilverPerk) && dummySilverPerk != null && dummySilverPerk.Effects != null)
                     {
                         Console.WriteLine("dummySilverPerk resolved");
                         Perk kyePerk = silverPerk.DeepCopy();
                         kyePerk.Effects.Clear();
-                        kyePerk.Effects.AddRange(dummySilverPerk.Effects);
+                        foreach(APerkEffect eff in dummySilverPerk.Effects)
+                        {
+                            kyePerk.Effects.Add(eff);
+                        }
                         state.PatchMod.Perks.GetOrAddAsOverride(kyePerk);
                     }
                 }
-
-                //if(state.LinkCache.)
-
-                //Perk kye_perk = state.PatchMod.Perks.AddNew();
-                /*
-                if(state.PatchMod.Perks.RecordCache.TryGetValue(FormKey.Factory("10D685:Skyrim.esm"), out var silverPerk))
-                {
-                    Console.WriteLine("SILVER PERK FOUDN!@!!");
-                    if (silverPerk != null)
-                    {
-                        kyePerk = silverPerk.DeepCopy();
-                        kyePerk.Effects.Clear();
-                        kyePerk.Effects.AddRange(silverPerk.Effects);
-                        state.PatchMod.Perks.GetOrAddAsOverride(kyePerk);
-                    }
-                }
-                */
-
             }
         }
     }

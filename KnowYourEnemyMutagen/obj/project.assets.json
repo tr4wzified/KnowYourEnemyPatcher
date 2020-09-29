@@ -247,6 +247,18 @@
           "lib/netstandard2.1/Mutagen.Bethesda.Core.dll": {}
         }
       },
+      "Mutagen.Bethesda.FormKeys.SkyrimSE/1.0.0": {
+        "type": "package",
+        "dependencies": {
+          "Mutagen.Bethesda": "0.16.0"
+        },
+        "compile": {
+          "lib/netstandard2.1/Mutagen.Bethesda.FormKeys.SkyrimSE.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.1/Mutagen.Bethesda.FormKeys.SkyrimSE.dll": {}
+        }
+      },
       "Mutagen.Bethesda.Kernel/0.18.0": {
         "type": "package",
         "compile": {
@@ -2203,6 +2215,18 @@
         "lib/netstandard2.1/Mutagen.Bethesda.Core.dll",
         "mutagen.bethesda.core.0.18.0.nupkg.sha512",
         "mutagen.bethesda.core.nuspec"
+      ]
+    },
+    "Mutagen.Bethesda.FormKeys.SkyrimSE/1.0.0": {
+      "sha512": "yr4su8AoqJsbTDd7DFI2jmkig6TgpcF1reTzO49PZykv4Hb8FTiNll4MomKtz0razeYRM/Ae9ZhVhhRF2+2F5g==",
+      "type": "package",
+      "path": "mutagen.bethesda.formkeys.skyrimse/1.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/netstandard2.1/Mutagen.Bethesda.FormKeys.SkyrimSE.dll",
+        "mutagen.bethesda.formkeys.skyrimse.1.0.0.nupkg.sha512",
+        "mutagen.bethesda.formkeys.skyrimse.nuspec"
       ]
     },
     "Mutagen.Bethesda.Kernel/0.18.0": {
@@ -6018,6 +6042,8 @@
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.1": [
       "Mutagen.Bethesda >= 0.18.0",
+      "Mutagen.Bethesda.FormKeys.SkyrimSE >= 1.0.0",
+      "Mutagen.Bethesda.Kernel >= 0.18.0",
       "Mutagen.Bethesda.Synthesis >= 0.8.3",
       "Newtonsoft.Json >= 12.0.3"
     ]
@@ -6058,6 +6084,14 @@
             "target": "Package",
             "version": "[0.18.0, )"
           },
+          "Mutagen.Bethesda.FormKeys.SkyrimSE": {
+            "target": "Package",
+            "version": "[1.0.0, )"
+          },
+          "Mutagen.Bethesda.Kernel": {
+            "target": "Package",
+            "version": "[0.18.0, )"
+          },
           "Mutagen.Bethesda.Synthesis": {
             "target": "Package",
             "version": "[0.8.3, )"
@@ -6085,17 +6119,5 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.202\\RuntimeIdentifierGraph.json"
       }
     }
-  },
-  "logs": [
-    {
-      "code": "NU1603",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Mutagen.Bethesda.Synthesis 0.8.3 depends on Mutagen.Bethesda.Kernel (>= 0.17.1-dev) but Mutagen.Bethesda.Kernel 0.17.1-dev was not found. An approximate best match of Mutagen.Bethesda.Kernel 0.18.0 was resolved.",
-      "libraryId": "Mutagen.Bethesda.Kernel",
-      "targetGraphs": [
-        ".NETCoreApp,Version=v3.1"
-      ]
-    }
-  ]
+  }
 }

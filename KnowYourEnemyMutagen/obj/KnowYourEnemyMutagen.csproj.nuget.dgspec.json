@@ -37,6 +37,14 @@
               "target": "Package",
               "version": "[0.18.0, )"
             },
+            "Mutagen.Bethesda.FormKeys.SkyrimSE": {
+              "target": "Package",
+              "version": "[1.0.0, )"
+            },
+            "Mutagen.Bethesda.Kernel": {
+              "target": "Package",
+              "version": "[0.18.0, )"
+            },
             "Mutagen.Bethesda.Synthesis": {
               "target": "Package",
               "version": "[0.8.3, )"
