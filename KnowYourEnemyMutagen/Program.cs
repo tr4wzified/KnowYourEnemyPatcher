@@ -215,6 +215,52 @@ namespace KnowYourEnemyMutagen
                     }
                 }
             }
+
+            // ***** PART 4 *****
+            if (state.LoadOrder.ContainsKey(ModKey.FromNameAndExtension("Complete Alchemy & Cooking Overhaul.esp")))
+            {
+                Console.WriteLine("CACO detected! Adjusting kye_ab_undead and kye_ab_ghostly spells.");
+                FormKey kye_ab_ghostly_key = new FormKey("know_your_enemy.esp", 0x060B93);
+                FormKey kye_ab_undead_key = new FormKey("know_your_enemy.esp", 0x00AA43);
+                if (state.LinkCache.TryLookup<Mutagen.Bethesda.Skyrim.ISpellGetter>(kye_ab_ghostly_key, out var kye_ab_ghostly) && kye_ab_ghostly != null)
+                {
+                    Mutagen.Bethesda.Skyrim.Spell kye_ab_ghostly_caco = kye_ab_ghostly.DeepCopy();
+                    foreach(var eff in kye_ab_ghostly_caco.Effects)
+                    {
+                        if (eff.Data == null) continue;
+                        eff.BaseEffect.TryResolve(state.LinkCache, out var baseEffect);
+                        if (baseEffect != null && baseEffect.EditorID != null && baseEffect.EditorID == "AbResistPoison")
+                        {
+                            eff.Data.Magnitude = 0;
+                            state.PatchMod.Spells.GetOrAddAsOverride(kye_ab_ghostly_caco);
+                        }
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("WARNING! CACO detected but failed to patch kye_ab_ghostly_caco spell. Do you have know_your_enemy.esp active in the load order?");
+                }
+
+                if (state.LinkCache.TryLookup<Mutagen.Bethesda.Skyrim.ISpellGetter>(kye_ab_undead_key, out var kye_ab_undead) && kye_ab_undead != null)
+                {
+                    Mutagen.Bethesda.Skyrim.Spell kye_ab_undead_caco = kye_ab_undead.DeepCopy();
+                    foreach(var eff in kye_ab_undead_caco.Effects)
+                    {
+                        if (eff.Data == null) continue;
+                        eff.BaseEffect.TryResolve(state.LinkCache, out var baseEffect);
+                        if (baseEffect != null && baseEffect.EditorID != null && baseEffect.EditorID == "AbResistPoison")
+                        {
+                            eff.Data.Magnitude = 0;
+                            state.PatchMod.Spells.GetOrAddAsOverride(kye_ab_undead_caco);
+                        }
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("WARNING! CACO detected but failed to patch kye_ab_undead_caco spell. Do you have know_your_enemy.esp active in the load order?");
+                }
+
+            }
         }
     }
 }
