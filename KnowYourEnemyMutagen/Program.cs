@@ -88,17 +88,16 @@ namespace KnowYourEnemyMutagen
                     var (key, id) = tuple;
                     state.LinkCache.TryLookup<IPerkGetter>(new FormKey("know_your_enemy.esp", id), out var perk);
                     if (perk != null) return (key, perk: perk.DeepCopy());
-                    Console.WriteLine($"Failed to find perk {key} ({id:X8})");
-                    return (key, null);
+                    throw new Exception("Failed to find perk with key" + key + " and id " + id);
                 }).Where(x => x.perk != null)
                 .ToDictionary(x => x.key, x => x.perk!, StringComparer.OrdinalIgnoreCase);
             
             // Reading JSON and converting it to a normal list because .Contains() is weird in Newtonsoft.JSON
             //JObject creatureRulesJSON = JObject.Parse(File.ReadAllText("creature_rules.json"));
             JObject misc = JObject.Parse(File.ReadAllText("misc.json"));
-            JObject e = JObject.Parse(File.ReadAllText("settings.json"));
-            var effectIntensity = (float) e["effect_intensity"]!;
-            var patchSilverPerk = (bool) e["patch_silver_perk"]!;
+            JObject settings = JObject.Parse(File.ReadAllText("settings.json"));
+            var effectIntensity = (float) settings["effect_intensity"]!;
+            var patchSilverPerk = (bool) settings["patch_silver_perk"]!;
             Console.WriteLine("*** DETECTED SETTINGS ***");
             Console.WriteLine("patch_silver_perk: " + patchSilverPerk);
             Console.WriteLine("effect_intensity: " + effectIntensity);
@@ -112,6 +111,7 @@ namespace KnowYourEnemyMutagen
 
             Dictionary<string, string[]> creatureRules = JsonConvert.DeserializeObject<Dictionary<string, string[]>>(File.ReadAllText("creature_rules.json"));
 
+            // Part 1a
             // Removing other magical resistance/weakness systems
             foreach (var spell in state.LoadOrder.PriorityOrder
                 .WinningOverrides<ISpellGetter>())
@@ -132,6 +132,7 @@ namespace KnowYourEnemyMutagen
                 state.PatchMod.Spells.GetOrAddAsOverride(modifiedSpell);
             }
 
+            // Part 1b
             // Remove other weapon resistance systems
             foreach (var perk in state.LoadOrder.PriorityOrder.WinningOverrides<IPerkGetter>())
             {
@@ -145,6 +146,7 @@ namespace KnowYourEnemyMutagen
                 }
             }
 
+            // Part 2a
             // Adjust KYE's physical effects according to effect_intensity
             if (Math.Abs(effectIntensity - 1) > float.Epsilon)
             {
@@ -161,6 +163,7 @@ namespace KnowYourEnemyMutagen
                     }
                 }
 
+                // Part 2b
                 // Adjust KYE's magical effects according to effect_intensity
 
                 foreach (var spell in state.LoadOrder.PriorityOrder
@@ -181,6 +184,7 @@ namespace KnowYourEnemyMutagen
                 }
             }
             
+            // Part 3
             // Edit the effect of silver weapons
 
             if (patchSilverPerk)
@@ -209,6 +213,7 @@ namespace KnowYourEnemyMutagen
                 }
             }
             
+            // Part 4
             // Adjust traits to accommodate CACO if present
             if (state.LoadOrder.ContainsKey(ModKey.FromNameAndExtension("Complete Alchemy & Cooking Overhaul.esp")))
             {
@@ -250,6 +255,7 @@ namespace KnowYourEnemyMutagen
                 }
             }
 
+            // Part 5
             // Add the traits to NPCs
 
             foreach (var npc in state.LoadOrder.PriorityOrder.WinningOverrides<INpcGetter>())
