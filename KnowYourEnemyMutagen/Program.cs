@@ -166,8 +166,7 @@ namespace KnowYourEnemyMutagen
                 // Part 2b
                 // Adjust KYE's magical effects according to effect_intensity
 
-                foreach (var spell in state.LoadOrder.PriorityOrder
-                    .WinningOverrides<ISpellGetter>())
+                foreach (var spell in state.LoadOrder.PriorityOrder.WinningOverrides<ISpellGetter>())
                 {
                     if (spell.EditorID == null || !kyeAbilityNames.Contains(spell.EditorID)) continue;
                     Spell s = spell.DeepCopy();
@@ -266,6 +265,9 @@ namespace KnowYourEnemyMutagen
 
                 var traits = new List<string>();
 
+                if (npc.EditorID != null)
+                    Console.WriteLine("Patching NPC " + npc.EditorID);
+
                 // If ghost
                 if (npc.Keywords != null && npc.Keywords.Contains(Skyrim.Keyword.ActorTypeGhost))
                 {
@@ -311,26 +313,21 @@ namespace KnowYourEnemyMutagen
                 }
 
                 // Add perks
-                if (npc.Perks != null && traits.Any())
+                if (traits.Any())
                 {
                     Npc kyeNpc = npc.DeepCopy();
+                    if (kyeNpc.Perks == null)
+                        kyeNpc.Perks = new ExtendedList<PerkPlacement>();
                     foreach (string trait in traits)
                     {
                         PerkPlacement p = new PerkPlacement();
-                        if (perks.TryGetValue(trait, out var perk))
-                        {
-                            p.Perk = perk;
-                            p.Rank = 1;
-                            kyeNpc.Perks?.Add(p);
-                        }
-                        else
-                        {
-                            Console.WriteLine("ERROR: Trait " + trait + " not found in the Perks dictionary!");
-                        }
+                        p.Perk = perks[trait];
+                        p.Rank = 1;
+                        kyeNpc.Perks.Add(p);
                     }
 
                     state.PatchMod.Npcs.GetOrAddAsOverride(kyeNpc);
-                    if (npc.Name != null && traits.Count > 0)
+                    if (npc.Name != null && traits.Any())
                     {
                         Console.WriteLine("NPC " + npc.Name! + " receives traits: " + traits.Count);
                         foreach (string t in traits)
