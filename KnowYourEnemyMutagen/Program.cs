@@ -83,6 +83,7 @@ namespace KnowYourEnemyMutagen
                 return;
             }
 
+            // Retrieve all the perks that are going to be applied to NPCs in part 5
             Dictionary<string, Perk> perks = PerkArray.Select(tuple =>
                 {
                     var (key, id) = tuple;
@@ -93,7 +94,6 @@ namespace KnowYourEnemyMutagen
                 .ToDictionary(x => x.key, x => x.perk!, StringComparer.OrdinalIgnoreCase);
             
             // Reading JSON and converting it to a normal list because .Contains() is weird in Newtonsoft.JSON
-            //JObject creatureRulesJSON = JObject.Parse(File.ReadAllText("creature_rules.json"));
             JObject misc = JObject.Parse(File.ReadAllText("misc.json"));
             JObject settings = JObject.Parse(File.ReadAllText("settings.json"));
             var effectIntensity = (float) settings["effect_intensity"]!;
