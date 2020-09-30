@@ -1,0 +1,12 @@
+﻿0.09 - Maximum amount of old logs reached (51 >= 50)
+0.13 - Found 1 old log files to delete
+0.2 - Deleted 1 log files, failed to delete 0 logs
+0.27 - Total number of Steam Libraries found: 0
+0.28 - Searching for Steam Games in c:\program files (x86)\steam\steamapps
+0.35 - Steam Game "Steamworks Common Redistributables" (228980) is not supported, skipping
+0.36 - Found Steam Game: "The Elder Scrolls V: Skyrim Special Edition" (489830) at c:\program files (x86)\steam\steamapps\common\Skyrim Special Edition
+0.36 - Total number of Steam Games found: 1
+0.37 - Wabbajack.Common.StoreHandlers.StoreException: Could not open the GOG registry key!
+0.37 - Wabbajack.Common.StoreHandlers.StoreException: Could not Init the GOGHandler, check previous error messages!
+0.37 - Wabbajack.Common.StoreHandlers.StoreException: Could not open the BethNetPath registry key!
+0.37 - Wabbajack.Common.StoreHandlers.StoreException: Could not Init the BethNetHandler, check previous error messages!
