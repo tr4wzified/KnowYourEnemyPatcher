@@ -49,25 +49,25 @@ namespace KnowYourEnemyMutagen
             new Tuple<string, uint>("big", 0x00AA60),
             new Tuple<string, uint>("small", 0x00AA61),
             new Tuple<string, uint>("armored", 0x00AA62),
-            new Tuple<string, uint>("undead", 0x00AA6),
-            new Tuple<string, uint>("plant", 0x00AA6),
-            new Tuple<string, uint>("skeletal", 0x00AA6),
-            new Tuple<string, uint>("brittle", 0x00AA6),
-            new Tuple<string, uint>("dwarven machine", 0x00AA6),
-            new Tuple<string, uint>("ghostly", 0x02E17),
-            new Tuple<string, uint>("furred", 0x04768),
-            new Tuple<string, uint>("supernatural", 0x04768),
-            new Tuple<string, uint>("venomous", 0x04768),
-            new Tuple<string, uint>("ice elemental", 0x04768),
-            new Tuple<string, uint>("fire elemental", 0x04768),
-            new Tuple<string, uint>("shock elemental", 0x04768),
-            new Tuple<string, uint>("vile", 0x04768),
-            new Tuple<string, uint>("troll kin", 0x04768),
-            new Tuple<string, uint>("weak willed", 0x04768),
-            new Tuple<string, uint>("strong willed", 0x04768),
-            new Tuple<string, uint>("cave dwelling", 0x04768),
-            new Tuple<string, uint>("vascular", 0x04768),
-            new Tuple<string, uint>("aquatic", 0x04768),
+            new Tuple<string, uint>("undead", 0x00AA63),
+            new Tuple<string, uint>("plant", 0x00AA64),
+            new Tuple<string, uint>("skeletal", 0x00AA65),
+            new Tuple<string, uint>("brittle", 0x00AA66),
+            new Tuple<string, uint>("dwarven machine", 0x00AA67),
+            new Tuple<string, uint>("ghostly", 0x02E171),
+            new Tuple<string, uint>("furred", 0x047680),
+            new Tuple<string, uint>("supernatural", 0x047681),
+            new Tuple<string, uint>("venomous", 0x047682),
+            new Tuple<string, uint>("ice elemental", 0x047683),
+            new Tuple<string, uint>("fire elemental", 0x047684),
+            new Tuple<string, uint>("shock elemental", 0x047685),
+            new Tuple<string, uint>("vile", 0x047686),
+            new Tuple<string, uint>("troll kin", 0x047687),
+            new Tuple<string, uint>("weak willed", 0x047688),
+            new Tuple<string, uint>("strong willed", 0x047689),
+            new Tuple<string, uint>("cave dwelling", 0x04768A),
+            new Tuple<string, uint>("vascular", 0x04768B),
+            new Tuple<string, uint>("aquatic", 0x04768C),
             new Tuple<string, uint>("rocky", 0x04C78E)
         };
 
@@ -90,7 +90,7 @@ namespace KnowYourEnemyMutagen
                     var (key, id) = tuple;
                     state.LinkCache.TryLookup<IPerkGetter>(new FormKey("know_your_enemy.esp", id), out var perk);
                     if (perk != null) return (key, perk: perk.DeepCopy());
-                    throw new Exception("Failed to find perk with key" + key + " and id " + id);
+                    else throw new Exception("Failed to find perk with key: " + key + " and id " + id);
                 }).Where(x => x.perk != null)
                 .ToDictionary(x => x.key, x => x.perk!, StringComparer.OrdinalIgnoreCase);
             
@@ -192,8 +192,8 @@ namespace KnowYourEnemyMutagen
                 if (state.LoadOrder.ContainsKey(ModKey.FromNameAndExtension("Skyrim Immersive Creatures.esp")))
                     Console.WriteLine("WARNING: Silver Perk is being patched, but Skyrim Immersive Creatures has been detected in your load order. Know Your Enemy's silver weapon effects will NOT work against new races added by SIC.");
 
-                var silverKey = Skyrim.Perk.SilverPerk;
-                var dummySilverKey = new FormKey("know_your_enemy.esp", 0x0BBE10);
+                FormKey silverKey = Skyrim.Perk.SilverPerk;
+                FormKey dummySilverKey = new FormKey("know_your_enemy.esp", 0x0BBE10);
                 if (state.LinkCache.TryLookup<IPerkGetter>(silverKey, out var silverPerk))
                 {
                     Console.WriteLine("silverPerk resolved");
