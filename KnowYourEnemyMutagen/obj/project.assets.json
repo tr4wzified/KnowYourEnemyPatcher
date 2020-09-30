@@ -6049,19 +6049,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\windoos\\.nuget\\packages\\": {}
+    "C:\\Users\\user\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\windoos\\source\\repos\\knowyourenemypatcher\\KnowYourEnemyMutagen\\KnowYourEnemyMutagen.csproj",
+      "projectUniqueName": "C:\\Users\\user\\Documents\\KnowYourEnemyMutagen\\KnowYourEnemyMutagen\\KnowYourEnemyMutagen\\KnowYourEnemyMutagen.csproj",
       "projectName": "KnowYourEnemyMutagen",
-      "projectPath": "C:\\Users\\windoos\\source\\repos\\knowyourenemypatcher\\KnowYourEnemyMutagen\\KnowYourEnemyMutagen.csproj",
-      "packagesPath": "C:\\Users\\windoos\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\windoos\\source\\repos\\knowyourenemypatcher\\KnowYourEnemyMutagen\\obj\\",
+      "projectPath": "C:\\Users\\user\\Documents\\KnowYourEnemyMutagen\\KnowYourEnemyMutagen\\KnowYourEnemyMutagen\\KnowYourEnemyMutagen.csproj",
+      "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\user\\Documents\\KnowYourEnemyMutagen\\KnowYourEnemyMutagen\\KnowYourEnemyMutagen\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\windoos\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\user\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [

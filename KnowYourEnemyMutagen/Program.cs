@@ -42,6 +42,9 @@ namespace KnowYourEnemyMutagen
 
         public static void RunPatch(SynthesisState<ISkyrimMod, ISkyrimModGetter> state)
         {
+            if (!state.LoadOrder.ContainsKey(ModKey.FromNameAndExtension("know_your_enemy.esp")))
+                Console.WriteLine("ERROR: Know Your Enemy not detected in load order. You need to install KYE prior to running this patcher!");
+            else {
             // Helper Functions
             float adjust_damage_mod_magnitude(float magnitude, float scale)
             {
@@ -69,53 +72,88 @@ namespace KnowYourEnemyMutagen
             Dictionary<string, Perk> perks = new Dictionary<string, Perk>();
             if (state.LinkCache.TryLookup<IPerkGetter>(new FormKey("know_your_enemy.esp", 0x00AA5E), out var fatPerk) && fatPerk != null)
                 perks.Add("fat", fatPerk.DeepCopy());
+            else Console.WriteLine("Failed to add perk fat");
             if (state.LinkCache.TryLookup<IPerkGetter>(new FormKey("know_your_enemy.esp", 0x00AA60), out var bigPerk) && bigPerk != null)
                 perks.Add("big", bigPerk.DeepCopy());
+            else Console.WriteLine("Failed to add perk big");
             if (state.LinkCache.TryLookup<IPerkGetter>(new FormKey("know_your_enemy.esp", 0x00AA61), out var smallPerk) && smallPerk != null)
                 perks.Add("small", smallPerk.DeepCopy());
+            else Console.WriteLine("Failed to add perk small");
             if (state.LinkCache.TryLookup<IPerkGetter>(new FormKey("know_your_enemy.esp", 0x00AA62), out var armoredPerk) && armoredPerk != null)
                 perks.Add("armored", armoredPerk.DeepCopy());
+            else Console.WriteLine("Failed to add perk armored");
             if (state.LinkCache.TryLookup<IPerkGetter>(new FormKey("know_your_enemy.esp", 0x00AA63), out var undeadPerk) && undeadPerk != null)
                 perks.Add("undead", undeadPerk.DeepCopy());
+            else Console.WriteLine("Failed to add perk undead");
             if (state.LinkCache.TryLookup<IPerkGetter>(new FormKey("know_your_enemy.esp", 0x00AA64), out var plantPerk) && plantPerk != null)
                 perks.Add("plant", plantPerk.DeepCopy());
+            else Console.WriteLine("Failed to add perk plant");
             if (state.LinkCache.TryLookup<IPerkGetter>(new FormKey("know_your_enemy.esp", 0x00AA65), out var skeletalPerk) && skeletalPerk != null)
                 perks.Add("skeletal", skeletalPerk.DeepCopy());
+            else Console.WriteLine("Failed to add perk skeletal");
             if (state.LinkCache.TryLookup<IPerkGetter>(new FormKey("know_your_enemy.esp", 0x00AA66), out var brittlePerk) && brittlePerk != null)
                 perks.Add("brittle", brittlePerk.DeepCopy());
+            else Console.WriteLine("Failed to add perk brittle");
             if (state.LinkCache.TryLookup<IPerkGetter>(new FormKey("know_your_enemy.esp", 0x00AA67), out var dwarvenMachinePerk) && dwarvenMachinePerk != null)
                 perks.Add("dwarven machine", dwarvenMachinePerk.DeepCopy());
+            else Console.WriteLine("Failed to add perk dwarven machine");
             if (state.LinkCache.TryLookup<IPerkGetter>(new FormKey("know_your_enemy.esp", 0x02E171), out var ghostlyPerk) && ghostlyPerk != null)
                 perks.Add("ghostly", ghostlyPerk.DeepCopy());
+            else Console.WriteLine("Failed to add perk ghostly");
             if (state.LinkCache.TryLookup<IPerkGetter>(new FormKey("know_your_enemy.esp", 0x047680), out var furredPerk) && furredPerk != null)
                 perks.Add("furred", furredPerk.DeepCopy());
+            else Console.WriteLine("Failed to add perk furred");
             if (state.LinkCache.TryLookup<IPerkGetter>(new FormKey("know_your_enemy.esp", 0x047681), out var supernaturalPerk) && supernaturalPerk != null)
                 perks.Add("supernatural", supernaturalPerk.DeepCopy());
+            else Console.WriteLine("Failed to add perk supernatural");
             if (state.LinkCache.TryLookup<IPerkGetter>(new FormKey("know_your_enemy.esp", 0x047682), out var venomousPerk) && venomousPerk != null)
                 perks.Add("venomous", venomousPerk.DeepCopy());
+            else Console.WriteLine("Failed to add perk venomous");
             if (state.LinkCache.TryLookup<IPerkGetter>(new FormKey("know_your_enemy.esp", 0x047683), out var iceElementalPerk) && iceElementalPerk != null)
                 perks.Add("ice elemental", iceElementalPerk.DeepCopy());
+            else Console.WriteLine("Failed to add perk ice elemental");
             if (state.LinkCache.TryLookup<IPerkGetter>(new FormKey("know_your_enemy.esp", 0x047684), out var fireElementalPerk) && fireElementalPerk != null)
                 perks.Add("fire elemental", fireElementalPerk.DeepCopy());
+            else Console.WriteLine("Failed to add perk fire elemental");
             if (state.LinkCache.TryLookup<IPerkGetter>(new FormKey("know_your_enemy.esp", 0x047685), out var shockElementalPerk) && shockElementalPerk != null)
                 perks.Add("shock elemental", shockElementalPerk.DeepCopy());
+            else Console.WriteLine("Failed to add perk shock elemental");
             if (state.LinkCache.TryLookup<IPerkGetter>(new FormKey("know_your_enemy.esp", 0x047686), out var vilePerk) && vilePerk != null)
                 perks.Add("vile", vilePerk.DeepCopy());
+            else Console.WriteLine("Failed to add perk vile");
             if (state.LinkCache.TryLookup<IPerkGetter>(new FormKey("know_your_enemy.esp", 0x047687), out var trollKinPerk) && trollKinPerk != null)
                 perks.Add("troll kin", trollKinPerk.DeepCopy());
+            else Console.WriteLine("Failed to add perk troll kin");
             if (state.LinkCache.TryLookup<IPerkGetter>(new FormKey("know_your_enemy.esp", 0x047688), out var weakWilledPerk) && weakWilledPerk != null)
                 perks.Add("weak willed", weakWilledPerk.DeepCopy());
+            else Console.WriteLine("Failed to add perk weak willed");
             if (state.LinkCache.TryLookup<IPerkGetter>(new FormKey("know_your_enemy.esp", 0x047689), out var strongWilledPerk) && strongWilledPerk != null)
                 perks.Add("strong willed", strongWilledPerk.DeepCopy());
+            else Console.WriteLine("Failed to add perk strong willed");
             if (state.LinkCache.TryLookup<IPerkGetter>(new FormKey("know_your_enemy.esp", 0x04768A), out var caveDwellingPerk) && caveDwellingPerk != null)
                 perks.Add("cave dwelling", caveDwellingPerk.DeepCopy());
+            else Console.WriteLine("Failed to add perk cave dwelling");
             if (state.LinkCache.TryLookup<IPerkGetter>(new FormKey("know_your_enemy.esp", 0x04768B), out var vascularPerk) && vascularPerk != null)
                 perks.Add("vascular", vascularPerk.DeepCopy());
+            else Console.WriteLine("Failed to add perk vascular");
             if (state.LinkCache.TryLookup<IPerkGetter>(new FormKey("know_your_enemy.esp", 0x04768C), out var aquaticPerk) && aquaticPerk != null)
                 perks.Add("aquatic", aquaticPerk.DeepCopy());
+            else Console.WriteLine("Failed to add perk aquatic");
             if (state.LinkCache.TryLookup<IPerkGetter>(new FormKey("know_your_enemy.esp", 0x04C78E), out var rockyPerk) && rockyPerk != null)
                 perks.Add("rocky", rockyPerk.DeepCopy());
+            else Console.WriteLine("Failed to add perk rocky");
 
+
+            foreach (KeyValuePair<string, Perk> entry in perks)
+            {
+                Console.WriteLine(entry.Key + " is Key");
+                /*foreach (string k in entry.Key)
+                {
+                    Console.WriteLine(k);
+                    //Console.WriteLine(val + " belongs to it");
+                }
+                */
+            }
 
 
             // ***** Part 0 *****
@@ -177,7 +215,6 @@ namespace KnowYourEnemyMutagen
                                 if (effect.Data != null)
                                 {
                                     effect.Data.Magnitude = 0;
-                                    state.PatchMod.Spells.GetOrAddAsOverride(modifiedSpell);
                                 }
                                 else
                                 {
@@ -186,6 +223,7 @@ namespace KnowYourEnemyMutagen
                             }
                         }
                     }
+                    state.PatchMod.Spells.GetOrAddAsOverride(modifiedSpell);
                 }
             }
             // ***** PART 1b *****
@@ -321,73 +359,80 @@ namespace KnowYourEnemyMutagen
                 // ***** PART 5 *****
                 // Add the traits to NPCs
 
-            foreach(var npc in state.LoadOrder.PriorityOrder.WinningOverrides<Mutagen.Bethesda.Skyrim.INpcGetter>())
-            {
-                // Skip if npc has spell list
-                if (npc.Configuration.TemplateFlags.HasFlag(Mutagen.Bethesda.Skyrim.NpcConfiguration.TemplateFlag.SpellList)) continue;
-
-                List<string> traits = new List<string>();
-
-                // If ghost
-                if (npc.Keywords != null && npc.Keywords.Contains(Skyrim.Keyword.ActorTypeGhost))
+                foreach (var npc in state.LoadOrder.PriorityOrder.WinningOverrides<Mutagen.Bethesda.Skyrim.INpcGetter>())
                 {
-                    /*foreach (KeyValuePair<string, string[]> entry in creature_rules)
+                    // Skip if npc has spell list
+                    if (npc.Configuration.TemplateFlags.HasFlag(Mutagen.Bethesda.Skyrim.NpcConfiguration.TemplateFlag.SpellList)) continue;
+
+                    List<string> traits = new List<string>();
+
+                    // If ghost
+                    if (npc.Keywords != null && npc.Keywords.Contains(Skyrim.Keyword.ActorTypeGhost))
                     {
-                        //Console.WriteLine(entry.Key + " is Key");
-                        foreach (string val in entry.Value)
-                        {
-                            //Console.WriteLine(val + " belongs to it");
-                        }
-                    }
-                    */
-                    if (npc.Name != null && npc.Name.ToString() == "Ice Wraith")
                         if (!traits.Contains("ghostly"))
                             traits.Add("ghostly");
-                }
-                // If npc race is in creature_rules
-                if (npc.Race.TryResolve(state.LinkCache, out var race) && race != null && race.EditorID != null && creature_rules.ContainsKey(race.EditorID.ToString())) {
-                    foreach (string trait in creature_rules[race.EditorID.ToString()])
-                    {
-                        if (!traits.Contains(trait))
-                            traits.Add(trait);
                     }
-                }
-                // If npc name is in creature_rules
-                if (npc.Name != null && creature_rules.ContainsKey(npc.Name.ToString()!))
-                {
-                    foreach (string trait in creature_rules[npc.Name.ToString()!])
+                    // If npc race is in creature_rules
+                    if (npc.Race.TryResolve(state.LinkCache, out var race) && race != null && race.EditorID != null && creature_rules.ContainsKey(race.EditorID.ToString()))
                     {
-                        if (!traits.Contains(trait))
-                            traits.Add(trait);
+                        foreach (string trait in creature_rules[race.EditorID.ToString()])
+                        {
+                            if (!traits.Contains(trait))
+                                traits.Add(trait);
+                        }
                     }
-                }
-                // If npc EDID is in creature_rules
-                if (npc.EditorID != null && creature_rules.ContainsKey(npc.EditorID.ToString()))
-                {
-                    foreach(string trait in creature_rules[npc.EditorID.ToString()])
+                    // If npc name is in creature_rules
+                    if (npc.Name != null && creature_rules.ContainsKey(npc.Name.ToString()!))
                     {
-                        if (!traits.Contains(trait))
-                            traits.Add(trait);
+                        foreach (string trait in creature_rules[npc.Name.ToString()!])
+                        {
+                            if (!traits.Contains(trait))
+                                traits.Add(trait);
+                        }
                     }
-                }
-                foreach (string trait in traits)
-                {
+                    // If npc EDID is in creature_rules
+                    if (npc.EditorID != null && creature_rules.ContainsKey(npc.EditorID.ToString()))
+                    {
+                        foreach (string trait in creature_rules[npc.EditorID.ToString()])
+                        {
+                            if (!traits.Contains(trait))
+                                traits.Add(trait);
+                        }
+                    }
+                    // If Ice Wraith add ghostly
+                    if (npc.Name != null && npc.Name.ToString() == "Ice Wraith")
+                    {
+                        if (!traits.Contains("ghostly"))
+                            traits.Add("ghostly");
+                    }
+                    // Add perks
                     if (npc.Perks != null && traits.Any())
                     {
                         Mutagen.Bethesda.Skyrim.Npc kyeNpc = npc.DeepCopy();
-                        PerkPlacement p = new PerkPlacement();
-                        p.Perk = perks[trait];
-                        p.Rank = 1;
-                        if (kyeNpc.Perks != null)
-                            kyeNpc.Perks.Add(p);
+                        foreach (string trait in traits)
+                        {
+                            PerkPlacement p = new PerkPlacement();
+                            if (perks.TryGetValue(trait, out var perk) && perk != null)
+                            {
+                                p.Perk = perk;
+                                p.Rank = 1;
+                                if (kyeNpc.Perks != null)
+                                    kyeNpc.Perks.Add(p);
+                            }
+                            else
+                            {
+                                Console.WriteLine("ERROR: Trait " + trait + " not found in the Perks dictionary!");
+                            }
+                        }
                         state.PatchMod.Npcs.GetOrAddAsOverride(kyeNpc);
-                    }
-                }
-                if (npc.Name != null && traits.Count > 0) {
-                    Console.WriteLine("NPC " + npc.Name.ToString()! + " receives traits: " + traits.Count);
-                    foreach (string t in traits)
-                    {
-                        Console.WriteLine(t);
+                        if (npc.Name != null && traits.Count > 0)
+                        {
+                            Console.WriteLine("NPC " + npc.Name.ToString()! + " receives traits: " + traits.Count);
+                            foreach (string t in traits)
+                            {
+                                Console.WriteLine(t);
+                            }
+                        }
                     }
                 }
             }
