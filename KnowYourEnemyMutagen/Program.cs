@@ -195,10 +195,8 @@ namespace KnowYourEnemyMutagen
                 FormKey dummySilverKey = new FormKey("know_your_enemy.esp", 0x0BBE10);
                 if (state.LinkCache.TryLookup<IPerkGetter>(silverKey, out var silverPerk))
                 {
-                    Console.WriteLine("silverPerk resolved");
                     if (state.LinkCache.TryLookup<IPerkGetter>(dummySilverKey, out var dummySilverPerk))
                     {
-                        Console.WriteLine("dummySilverPerk resolved");
                         Perk kyePerk = silverPerk.DeepCopy();
                         kyePerk.Effects.Clear();
                         foreach (var aPerkEffectGetter in dummySilverPerk.Effects)
@@ -264,9 +262,6 @@ namespace KnowYourEnemyMutagen
                     .SpellList)) continue;
 
                 var traits = new List<string>();
-
-                if (npc.EditorID != null)
-                    Console.WriteLine("Patching NPC " + npc.EditorID);
 
                 // If ghost
                 if (npc.Keywords != null && npc.Keywords.Contains(Skyrim.Keyword.ActorTypeGhost))
