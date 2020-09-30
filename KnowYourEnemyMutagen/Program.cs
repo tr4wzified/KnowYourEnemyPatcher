@@ -8,6 +8,7 @@ using Newtonsoft.Json.Linq;
 using Alphaleonis.Win32.Filesystem;
 using Mutagen.Bethesda.FormKeys.SkyrimSE;
 using Newtonsoft.Json;
+using Noggog;
 
 namespace KnowYourEnemyMutagen
 {
@@ -31,7 +32,7 @@ namespace KnowYourEnemyMutagen
 
         private static float AdjustDamageMod(float magnitude, float scale)
         {
-            if (Math.Abs(magnitude - 1) < float.Epsilon)
+            if (magnitude.EqualsWithin(0))
                 return magnitude;
             if (magnitude > 1)
                 return (magnitude - 1) * scale + 1;
@@ -113,8 +114,7 @@ namespace KnowYourEnemyMutagen
 
             // Part 1a
             // Removing other magical resistance/weakness systems
-            foreach (var spell in state.LoadOrder.PriorityOrder
-                .WinningOverrides<ISpellGetter>())
+            foreach (var spell in state.LoadOrder.PriorityOrder.WinningOverrides<ISpellGetter>())
             {
                 if (spell.EditorID == null || !abilitiesToClean.Contains(spell.EditorID)) continue;
                 var modifiedSpell = spell.DeepCopy();
@@ -148,7 +148,7 @@ namespace KnowYourEnemyMutagen
 
             // Part 2a
             // Adjust KYE's physical effects according to effect_intensity
-            if (Math.Abs(effectIntensity - 1) > float.Epsilon)
+            if (!effectIntensity.EqualsWithin(1))
             {
                 foreach (var perk in state.LoadOrder.PriorityOrder.WinningOverrides<IPerkGetter>())
                 {
