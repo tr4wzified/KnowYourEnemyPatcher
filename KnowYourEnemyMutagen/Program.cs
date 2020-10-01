@@ -315,9 +315,7 @@ namespace KnowYourEnemyMutagen
                         kyeNpc.Perks = new ExtendedList<PerkPlacement>();
                     foreach (string trait in traits)
                     {
-                        PerkPlacement p = new PerkPlacement();
-                        p.Perk = perks[trait];
-                        p.Rank = 1;
+                        PerkPlacement p = new PerkPlacement() { Perk = perks[trait], Rank = 1 };
                         kyeNpc.Perks.Add(p);
                     }
 
