@@ -84,7 +84,7 @@ namespace KnowYourEnemyMutagen
                 return;
             }
 
-            string[] requiredFiles = {"armor_rules.json", "misc.json", "settings.json"};
+            string[] requiredFiles = {"creature_rules.json", "misc.json", "settings.json"};
             foreach (string file in requiredFiles)
             {
                 if (!File.Exists(file)) throw new Exception("Required file " + file + " does not exist! Make sure to copy all files over when installing the patcher, and don't run it from within an archive.");
