@@ -84,6 +84,12 @@ namespace KnowYourEnemyMutagen
                 return;
             }
 
+            string[] requiredFiles = {"armor_rules.json", "misc.json", "settings.json"};
+            foreach (string file in requiredFiles)
+            {
+                if (!File.Exists(file)) throw new Exception("Required file " + file + " does not exist! Make sure to copy all files over when installing the patcher, and don't run it from within an archive.");
+            }
+
             // Retrieve all the perks that are going to be applied to NPCs in part 5
             Dictionary<string, Perk> perks = PerkArray.Select(tuple =>
                 {
@@ -320,6 +326,7 @@ namespace KnowYourEnemyMutagen
                     }
 
                     state.PatchMod.Npcs.GetOrAddAsOverride(kyeNpc);
+                    /* For debugging purposes
                     if (npc.Name != null && traits.Any())
                     {
                         Console.WriteLine("NPC " + npc.Name! + " receives traits: " + traits.Count);
@@ -328,6 +335,7 @@ namespace KnowYourEnemyMutagen
                             Console.WriteLine(t);
                         }
                     }
+                    */
                 }
             }
         }
