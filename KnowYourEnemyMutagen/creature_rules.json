@@ -1,0 +1,490 @@
+{
+    'DLC1HuskyArmoredCompanionRace': ['armored', 'furred'],
+
+    'DLC2AshSpawnRace': ['rocky', 'supernatural', 'weak willed'],
+
+    'dlc2AshGuardianRace': ['rocky', 'supernatural', 'weak willed', 'big'],
+    '_00OreGuardianRace': ['rocky', 'supernatural', 'weak willed', 'big'],
+    '_00StahlrimGuardianRace': ['rocky', 'supernatural', 'weak willed', 'big'],
+
+    'DLC2AshHopperRace': ['armored', 'vile', 'brittle'],
+    '_00AshHunterRace': ['armored', 'vile', 'brittle'],
+    '_00ChaurusHopperRace': ['armored', 'vile', 'brittle'],
+
+    'BearBlackRace': ['big', 'furred', 'vascular'],
+    'BearBrownRace': ['big', 'furred', 'vascular'],
+    'CYRBearBrownRace': ['big', 'furred', 'vascular'],
+    'CYRBearMaskedRace': ['big', 'furred', 'vascular'],
+
+    'DLC2BoarRace': ['big', 'furred'],
+    'BSKBoarRace': ['big', 'furred'],
+    'PigRace': ['big', 'furred'],
+
+    'DLC01SoulCairnBonemanRace': ['skeletal', 'brittle'],
+    '_00DLC1BonemanSkeletonRace': ['skeletal', 'brittle'],
+
+    'ChaurusRace': ['armored', 'venomous', 'vile', 'cave dwelling', 'brittle'],
+    'AKChaurusCavewormRace': ['armored', 'venomous', 'vile', 'cave dwelling', 'brittle'],
+    'AKChaurusBonelooperRace': ['armored', 'venomous', 'vile', 'cave dwelling', 'brittle'],
+    'AKChaurusTentacleRace': ['armored', 'venomous', 'vile', 'cave dwelling', 'brittle'],
+    'AKChaurusDwarvenwormRace': ['armored', 'venomous', 'vile', 'cave dwelling', 'brittle'],
+    '_00ChaurusCrawlerRace': ['armored', 'venomous', 'vile', 'cave dwelling', 'brittle'],
+    '_00ChaurusCrawlerRaceLarge': ['armored', 'venomous', 'vile', 'cave dwelling', 'brittle'],
+
+    'DLC1ChaurusHunterRace': ['armored', 'venomous', 'vile', 'cave dwelling', 'brittle'],
+    'DwaSpVesparRace': ['armored', 'venomous', 'vile', 'cave dwelling', 'brittle'],
+
+    'ChaurusReaperRace': ['armored', 'venomous', 'vile', 'cave dwelling', 'big'],
+    '_00ChaurusWarriorRace': ['armored', 'venomous', 'vile', 'cave dwelling', 'big'],
+    '_00ChaurusGrimWarriorRace': ['armored', 'venomous', 'vile', 'cave dwelling', 'big'],
+    '_00ChaurusCrawlerRaceGiant': ['armored', 'venomous', 'vile', 'cave dwelling', 'big'],
+
+    'ChickenRace': ['small', 'weak willed'],
+
+    'SkeletonNecroRace': ['skeletal', 'weak willed', 'brittle'],
+
+    'DLC1DeathHoundCompanionRace': ['undead', 'vile', 'ice elemental', 'weak willed'],
+    'DLC1DeathHoundRace': ['undead', 'vile', 'ice elemental', 'weak willed'],
+
+    'ElkRace': ['furred'],
+    'DeerRace': ['furred'],
+    'DLC1DeerGlowRace': ['furred'],
+
+    'DogRace': ['furred', 'weak willed'],
+    'ArnimaHoundRace': ['furred', 'weak willed'],
+
+    'DragonPriestRace': ['undead', 'strong willed', 'vile'],
+    'DLC2AcolyteDragonPriestRace': ['undead', 'strong willed', 'vile'],
+    '000CCCNewDragonPriestRace': ['undead', 'strong willed', 'vile'],
+    'BSKAyleidLichRace': ['undead', 'strong willed', 'vile'],
+    'GorgonRace': ['undead', 'strong willed', 'vile'],
+    'ArnimaDragonPriestUndeadLich': ['undead', 'strong willed', 'vile'],
+    'AKDragonPriestNamiraRace': ['undead', 'strong willed', 'vile'],
+    'AKDragonPriestDreughRace': ['undead', 'strong willed', 'vile'],
+    'AKDragonPriestBonelordRace': ['undead', 'strong willed', 'vile'],
+    'AKDragonPriestAscendedMageRace': ['undead', 'strong willed', 'vile'],
+    '_00DreughRace': ['undead', 'strong willed', 'vile'],
+    'NecroLichRace': ['undead', 'strong willed', 'vile'],
+
+    'DraugrRace': ['undead', 'vile', 'cave dwelling', 'weak willed'],
+    'BSKZombieRace': ['undead', 'vile', 'cave dwelling', 'weak willed'],
+    'BSKAyleidZombieRace': ['undead', 'vile', 'cave dwelling', 'weak willed'],
+    'VoidZombieRace': ['undead', 'vile', 'cave dwelling', 'weak willed'],
+    'akDraugrZombieRace': ['undead', 'vile', 'cave dwelling', 'weak willed'],
+    'akDraugrDwarvenworkerRace': ['undead', 'vile', 'cave dwelling', 'weak willed'],
+    'AKDraugrRealZombieRace': ['undead', 'vile', 'cave dwelling', 'weak willed'],
+    'AKDraugrRealZombieRaceMute': ['undead', 'vile', 'cave dwelling', 'weak willed'],
+    'AKDraugrRealZombieRaceJarl01': ['undead', 'vile', 'cave dwelling', 'weak willed'],
+    'akDraugrMummyRace': ['undead', 'vile', 'cave dwelling', 'weak willed'],
+    'AKDraugrRealZombieRaceGirl01': ['undead', 'vile', 'cave dwelling', 'weak willed'],
+    '_00LichRace': ['undead', 'vile', 'cave dwelling', 'weak willed'],
+    '_00DraugrRaceSH': ['undead', 'vile', 'cave dwelling', 'weak willed'],
+    '_00DraugrOneEyeRace': ['undead', 'vile', 'cave dwelling', 'weak willed'],
+
+    'AtronachEarthRace': ['rocky', 'weak willed', 'supernatural', 'earth elemental', 'big'],
+
+    'AKHorkerDraugrRace': ['undead', 'vile', 'fat'],
+    'AKHorkerNamiraRace': ['undead', 'vile', 'fat'],
+    'AKHorkerBloodsuckerRace': ['undead', 'vile', 'fat'],
+    'AKHorkerBaliwogRace': ['undead', 'vile', 'fat'],
+    'AKHorkerLarvaRace': ['undead', 'vile', 'fat'],
+    'akDraugrTrollRace': ['undead', 'vile', 'fat'],
+
+    'AKRieklingDraugrLittleRace': ['undead', 'strong willed', 'small'],
+
+    'AKDogDraugrRace': ['undead', 'weak willed', 'furred'],
+
+    'DLC2HulkingDraugrRace': ['undead', 'vile', 'cave dwelling', 'big'],
+    'AKGiantHulkingDraugrRace': ['undead', 'vile', 'cave dwelling', 'big'],
+
+    'DremoraRace': ['supernatural', 'strong willed'],
+    'DLC2DremoraRace': ['supernatural', 'strong willed'],
+    'ArnimaDremoraRace': ['supernatural', 'strong willed'],
+    '_00GoldenSaintRace': ['supernatural', 'strong willed'],
+    '_00WingedTwilightRace': ['supernatural', 'strong willed'],
+    '_00DarkSeducerRace': ['supernatural', 'strong willed'],
+
+    '_00DurzogRace': ['big', 'fat', 'weak willed', 'armored'],
+
+    'DwarvenCenturionRace': ['big', 'dwarven machine'],
+    'zz02cccDwarvenCenturionRace': ['big', 'dwarven machine'],
+
+    'DwarvenSphereRace': ['dwarven machine'],
+    'zz02WheelSkeletonRace': ['dwarven machine'],
+    'DwaSpSnippyRace': ['dwarven machine'],
+    'DwaSpCleaner01Race': ['dwarven machine'],
+    'DwaSpCleaner02Race': ['dwarven machine'],
+    'DwaSpCleaner03Race': ['dwarven machine'],
+    'DwaSpJumperRace': ['dwarven machine'],
+    'DwaSpDweSkeleton01Race': ['dwarven machine'],
+    'DwaSpDweSkeleton02Race': ['dwarven machine'],
+    'DwaSpDweSkeleton03Race': ['dwarven machine'],
+    'AKDwarvenSphereBonewheelRace': ['dwarven machine'],
+    'AKTrollDwarvenRace': ['dwarven machine'],
+    '_00DraugrDwarvenRace': ['dwarven machine'],
+    '_00DwarvenDroidRace01': ['dwarven machine'],
+    '_00DwarvenSweeperRace': ['dwarven machine'],
+    '_00DwarvenDroidRace02': ['dwarven machine'],
+    '_00DwarvenBotRace': ['dwarven machine'],
+    '_00DwarvenKeeperRace': ['dwarven machine'],
+    '_00DwarvenPunisherRace': ['dwarven machine'],
+    '_00DwarvenDroidRace03': ['dwarven machine'],
+
+    'DLC2DwarvenBallistaRace': ['dwarven machine'],
+
+    'DwarvenSpiderRace': ['dwarven machine', 'small'],
+    'DwaSpLibSpider01Race': ['dwarven machine', 'small'],
+    'DwaSpLibSpider02Race': ['dwarven machine', 'small'],
+    'DwaSpLibSpider03Race': ['dwarven machine', 'small'],
+    'DwaSpLibSpider04Race': ['dwarven machine', 'small'],
+    'DwaSpLibSpider05Race': ['dwarven machine', 'small'],
+    'DwaSpLibSpider06Race': ['dwarven machine', 'small'],
+    'DwaSpLibSpider07Race': ['dwarven machine', 'small'],
+
+    '_00DwarvenSpiderFireRace': ['dwarven machine', 'small', 'fire elemental'],
+
+    '_00DwarvenSpiderBoltRace': ['dwarven machine', 'small', 'shock elemental'],
+
+    '_00DwemerRace': ['cave dwelling', 'strong willed'],
+
+    '000CCCAtronachEarthRace': ['rocky', 'weak willed', 'supernatural', 'big'],
+
+    'FalmerRace': ['vile', 'cave dwelling', 'vascular', 'venomous'],
+    'AKFalmerSkampRace': ['vile', 'cave dwelling', 'vascular', 'venomous'],
+    'AKFalmerGrummiteRace': ['vile', 'cave dwelling', 'vascular', 'venomous'],
+    'AKFalmerDwarvenOldWorkerRace': ['vile', 'cave dwelling', 'vascular', 'venomous'],
+    'AKFalmerSnowgoblinRace': ['vile', 'cave dwelling', 'vascular', 'venomous'],
+    'AKFalmerSnowgoblin02Race': ['vile', 'cave dwelling', 'vascular', 'venomous'],
+    'AKFalmerSnowgoblin03Race': ['vile', 'cave dwelling', 'vascular', 'venomous'],
+    '_00FalmerRace01': ['vile', 'cave dwelling', 'vascular', 'venomous'],
+    '_00FalmerRace02': ['vile', 'cave dwelling', 'vascular', 'venomous'],
+    '_00FalmerRace03': ['vile', 'cave dwelling', 'vascular', 'venomous'],
+    '_00FalmerRace04': ['vile', 'cave dwelling', 'vascular', 'venomous'],
+    '_00FalmerRace05': ['vile', 'cave dwelling', 'vascular', 'venomous'],
+
+    'AKDragonPriestFalmerRace': ['vile', 'cave dwelling', 'undead', 'strong willed'],
+
+    'AtronachFlameRace': ['fire elemental', 'weak willed', 'supernatural'],
+    '000CCCAtronachBlueFlameRace': ['fire elemental', 'weak willed', 'supernatural'],
+    '000CCCAtronachDarkFlameRace': ['fire elemental', 'weak willed', 'supernatural'],
+    '0001CCCAtronachFlamesRace': ['fire elemental', 'weak willed', 'supernatural'],
+
+    'BSKAtronachColdFlameRace': ['ice elemental', 'weak willed', 'supernatural'],
+
+    'DLC1LD_ForgemasterRace': ['big', 'dwarven machine', 'fire elemental'],
+
+    'AtronachFrostRace': ['ice elemental', 'weak willed', 'supernatural', 'big', 'brittle'],
+    '000CCChyperAtronachFrostRace': ['ice elemental', 'weak willed', 'supernatural', 'big', 'brittle'],
+    '000CCCBlackDaiamondGolemRace': ['ice elemental', 'weak willed', 'supernatural', 'big', 'brittle'],
+    'AKAtronachFrostDMRace': ['ice elemental', 'weak willed', 'supernatural', 'big', 'brittle'],
+    '_00AtronachGlassRace': ['ice elemental', 'weak willed', 'supernatural', 'big', 'brittle'],
+
+    'DLC1TrollFrostRaceArmored': ['furred', 'vascular', 'troll kin', 'fat', 'ice elemental', 'armored'],
+
+    'TrollFrostRace': ['furred', 'vascular', 'troll kin', 'fat', 'ice elemental'],
+
+    'FrostbiteSpiderRace': ['armored', 'venomous', 'vile', 'brittle', 'small'],
+    'DLC2ExpSpiderBaseRace': ['armored', 'venomous', 'vile', 'brittle', 'small'],
+    'DLC2ExpSpiderPackmuleRace': ['armored', 'venomous', 'vile', 'brittle', 'small'],
+    'zz01cccDaedraSpiderRace': ['armored', 'venomous', 'vile', 'brittle', 'small'],
+    'FrostbiteSpiderRacearnima': ['armored', 'venomous', 'vile', 'brittle', 'small'],
+    'ArnimaHarvesterRace': ['armored', 'venomous', 'vile', 'brittle', 'small'],
+    'AKFrostbiteScorpionRace': ['armored', 'venomous', 'vile', 'brittle', 'small'],
+    'AKFrostbiteArachnerRace': ['armored', 'venomous', 'vile', 'brittle', 'small'],
+
+    'FrostbiteSpiderRaceLarge': ['armored', 'venomous', 'vile', 'brittle'],
+    'AKFrostbiteScorpionRaceLarge': ['armored', 'venomous', 'vile', 'brittle'],
+    'AKNecroSpiderRaceLarge': ['armored', 'venomous', 'vile', 'brittle'],
+
+    'FrostbiteSpiderRaceGiant': ['armored', 'venomous', 'vile', 'brittle', 'big'],
+    'AKArachneRaceGiant': ['armored', 'venomous', 'vile', 'brittle', 'big'],
+    'AKFrostbiteSpiderNCRRaceGiant': ['armored', 'venomous', 'vile', 'brittle', 'big'],
+    'AKFrostbiteSpiderNCRRaceGiantb': ['armored', 'venomous', 'vile', 'brittle', 'big'],
+
+    'DLC1_BF_ChaurusRace': ['armored', 'venomous', 'vile', 'brittle', 'cave dwelling', 'ice elemental'],
+
+    'DLC1GargoyleRace': ['big', 'cave dwelling', 'vile', 'vascular'],
+    'DLC1GargoyleVariantBossRace': ['big', 'cave dwelling', 'vile', 'vascular'],
+    'DLC1GargoyleVariantGreenRace': ['big', 'cave dwelling', 'vile', 'vascular'],
+    '_00WrathBruteRace': ['big', 'cave dwelling', 'vile', 'vascular'],
+
+    'GiantRace': ['big'],
+    'BSKOgreRace': ['big'],
+    'GolemRaceArnima': ['big'],
+    'OgreRace': ['big'],
+    'AKGiantRace': ['big'],
+    'AKGiantDwarvenKeeperRace': ['big'],
+    '_00GiantBruteRace': ['big'],
+
+    '_00GiantFireRace': ['big', 'fire elemental'],
+
+    '_00GiantFrostRace': ['big', 'ice elemental'],
+    '_00FrostBruteRace': ['big', 'ice elemental'],
+
+    'DLC2GhostFrostGiantRace': ['big','strong willed'],
+
+    'GoatRace': ['furred', 'small', 'weak willed'],
+    'SheepRace': ['furred', 'small', 'weak willed'],
+
+    'HagravenRace': ['vile', 'strong willed'],
+    'AKHagravenAsctndedsleeperRace': ['vile', 'strong willed'],
+    'AKHagravenGnarlRace': ['vile', 'strong willed'],
+
+    'HorkerRace': ['fat'],
+
+    'HorseRace': ['furred'],
+
+    'DLC1HuskyBareCompanionRace': ['furred'],
+    'DLC1HuskyBareRace': ['furred'],
+
+    'IceWraithRace': ['small', 'ice elemental', 'strong willed', 'brittle', 'supernatural'],
+    'DLC2dunKarstaagIceWraithRace': ['small', 'ice elemental', 'strong willed', 'brittle', 'supernatural'],
+    'zz02cccFlameWraithRace': ['small', 'ice elemental', 'strong willed', 'brittle', 'supernatural'],
+    'IceWraithRacearnima': ['small', 'ice elemental', 'strong willed', 'brittle', 'supernatural'],
+    'AKIceWraithShoggothRace': ['small', 'ice elemental', 'strong willed', 'brittle', 'supernatural'],
+    'AKIceWraithFleshspiritRace': ['small', 'ice elemental', 'strong willed', 'brittle', 'supernatural'],
+    'AKIceWraithBonespiritRace': ['small', 'ice elemental', 'strong willed', 'brittle', 'supernatural'],
+    'AKIceWraithEyebotRace': ['small', 'ice elemental', 'strong willed', 'brittle', 'supernatural'],
+    'AKIceWraithFireGhostRace': ['small', 'ice elemental', 'strong willed', 'brittle', 'supernatural'],
+    '_00IceWraithSummonRace': ['small', 'ice elemental', 'strong willed', 'brittle', 'supernatural'],
+
+    'DLC1SoulCairnKeeperRace': ['skeletal', 'armored'],
+
+    'DLC2LurkerRace': ['big', 'aquatic', 'vile', 'venomous'],
+
+    'MagicAnomalyRace': ['small', 'ice elemental', 'brittle', 'supernatural'],
+    'DwaSpMagicAnomalyRace': ['small', 'ice elemental', 'brittle', 'supernatural'],
+    '_00SoulWraithRace': ['small', 'ice elemental', 'brittle', 'supernatural'],
+
+    'MammothRace': ['furred', 'fat', 'weak willed', 'big'],
+    'BSKRhinoRace': ['furred', 'fat', 'weak willed', 'big'],
+
+    'DLC1SoulCairnSkeletonNecroRace': ['skeletal', 'brittle'],
+
+    'MudcrabRace': ['armored', 'aquatic', 'brittle'],
+    'DLC2MudcrabSolstheimRace': ['armored', 'aquatic', 'brittle'],
+    'CYRMudcrabRace': ['armored', 'aquatic', 'brittle'],
+    'DwaSpMudcrab01Race': ['armored', 'aquatic', 'brittle'],
+    'DwaSpMudcrab02Race': ['armored', 'aquatic', 'brittle'],
+    'DwaSpMudcrab03Race': ['armored', 'aquatic', 'brittle'],
+    'CrabRace': ['armored', 'aquatic', 'brittle'],
+
+    'DwaSpMudcrab01LgRace': ['armored', 'aquatic', 'brittle', 'big'],
+    'DwaSpMudcrab02LgRace': ['armored', 'aquatic', 'brittle', 'big'],
+    'MudcrabGiantRace': ['armored', 'aquatic', 'brittle', 'big'],
+
+    'CYRMinotaurLordRace': ['big', 'furred', 'strong willed'],
+    'CYRMinotaurRace': ['big', 'furred', 'strong willed'],
+
+    'DLC2NetchRace': ['shock elemental', 'weak willed', 'big'],
+    'DwaSpNetchRace': ['shock elemental', 'weak willed', 'big'],
+
+    'DLC2NetchCalfRace': ['shock elemental', 'weak willed'],
+    'DwaSpNetchCalfRace': ['shock elemental', 'weak willed'],
+
+    'DLC2MountedRieklingRace': ['cave dwelling', 'small', 'strong willed'],
+    'DLC2RieklingRace': ['cave dwelling', 'small', 'strong willed'],
+    'DLC2ThirskRieklingRace': ['cave dwelling', 'small', 'strong willed'],
+    'BSKGoblinRace': ['cave dwelling', 'small', 'strong willed'],
+    'GoblinRace': ['cave dwelling', 'small', 'strong willed'],
+    '_00RieklingRaceSmall': ['cave dwelling', 'small', 'strong willed'],
+    '_00GoblinRace': ['cave dwelling', 'small', 'strong willed'],
+    '_00MountedGoblinRace': ['cave dwelling', 'small', 'strong willed'],
+
+    '_00RieklingRaceBig': ['cave dwelling', 'strong willed'],
+
+    'SabreCatRace': ['furred', 'vascular', 'big'],
+    'DLC1SabreCatGlowRace': ['furred', 'vascular', 'big'],
+    'zz02BlackSabreCatRace': ['furred', 'vascular', 'big'],
+    'CYRMountainLionRace': ['furred', 'vascular', 'big'],
+    'AKSabreCatPantherRace': ['furred', 'vascular', 'big'],
+    
+    'DLC2SeekerRace': ['strong willed', 'cave dwelling', 'supernatural'],
+    '_00LesserShoggothRace': ['strong willed', 'cave dwelling', 'supernatural'],
+    '_00GreaterShoggothRace': ['strong willed', 'cave dwelling', 'supernatural'],
+    '_00FlyingShoggothRace': ['strong willed', 'cave dwelling', 'supernatural'],
+
+    'BSKScampRace': ['strong willed', 'small', 'vile', 'supernatural'],
+
+    '_00DaedrothRace': ['supernatural', 'big', 'vascular'],
+
+    'SkeeverRace': ['furred', 'small', 'vile'],
+    'BSKRatRace': ['furred', 'small', 'vile'],
+    'AKSkeeverShoggothRace': ['furred', 'small', 'vile'],
+    'AKMushroomSkeeverRace': ['furred', 'small', 'vile'],
+    'AKRatSkeeverRace': ['furred', 'small', 'vile'],
+    '_00WereSkeeverBeastRace': ['furred', 'small', 'vile'],
+    'RatRace': ['furred', 'small', 'vile'],
+
+
+    'SkeletonRace': ['skeletal', 'weak willed', 'brittle'],
+    'BSKSkeletonArgonianRace': ['skeletal', 'weak willed', 'brittle'],
+    'BSKSkeletonKhajiitRace': ['skeletal', 'weak willed', 'brittle'],
+    'BSKSkeletonOrcRace': ['skeletal', 'weak willed', 'brittle'],
+    'BSKSkeletonElfRace': ['skeletal', 'weak willed', 'brittle'],
+    'CYRSkeletonRace': ['skeletal', 'weak willed', 'brittle'],
+    'AKFalmerSkeletonRace': ['skeletal', 'weak willed', 'brittle'],
+    'AKGiantSkeletonRace': ['skeletal', 'weak willed', 'brittle'],
+    '_00SkeletonSpiderRace': ['skeletal', 'weak willed', 'brittle'],
+    '_00SkeletonLordRace': ['skeletal', 'weak willed', 'brittle'],
+    '_00BeastSkeletonRace': ['skeletal', 'weak willed', 'brittle'],
+
+
+    '_00SkeletonPriestRace': ['skeletal', 'strong willed', 'brittle', 'vile'],
+
+    '_00DramanRace': ['skeletal', 'strong willed', 'brittle'],
+    '_00DramanHunterRace': ['skeletal', 'strong willed', 'brittle'],
+    '_00DramanBruteRace': ['skeletal', 'strong willed', 'brittle'],
+    '_00DramanBeastRace': ['skeletal', 'strong willed', 'brittle'],
+
+    'SkeletonArmorRace': ['skeletal', 'weak willed', 'brittle', 'armored'],
+    '_00ArmoredSkeletonBeastRace_Old': ['skeletal', 'weak willed', 'brittle', 'armored'],
+    '_00ArmoredSkeletonRace_Old': ['skeletal', 'weak willed', 'brittle', 'armored'],
+    '_00ArmoredSkeletonArgonianRace': ['skeletal', 'weak willed', 'brittle', 'armored'],
+    '_00ArmoredSkeletonRace': ['skeletal', 'weak willed', 'brittle', 'armored'],
+    '_00ArmoredSkeletonKhajiitRace': ['skeletal', 'weak willed', 'brittle', 'armored'],
+
+    'SlaughterfishRace': ['aquatic', 'small'],
+    'AKAnglerfishRace': ['aquatic', 'small'],
+    'AKBloodsuckerfishRace': ['aquatic', 'small'],
+
+    'BSKSloadRace': ['big', 'fat', 'vile', 'strong willed'],
+
+    'BearSnowRace': ['big', 'furred', 'vascular', 'fat'],
+
+    'SabreCatSnowyRace': ['furred', 'vascular', 'big', 'fat'],
+
+    'DraugrMagicRace': ['undead', 'vile', 'cave dwelling', 'weak willed', 'ghostly'],
+
+    'MG07DogRace': ['furred', 'vascular', 'ghostly'],
+    
+    'SprigganRace': ['plant', 'strong willed'],
+    'SprigganMatronRace': ['plant', 'strong willed'],
+    'SprigganEarthMotherRace': ['plant', 'strong willed'],
+    'DwaSpSprigganRace': ['plant', 'strong willed'],
+    'AKSprigganDwarvenRipperRace': ['plant', 'strong willed'],
+    '_00AncientSprigganRace': ['plant', 'strong willed'],
+    '_00VenerableSprigganRace': ['plant', 'strong willed'],
+    '_00VenerableSprigganMatronRace': ['plant', 'strong willed'],
+    '_00VenerableSprigganEarthMotherRace': ['plant', 'strong willed'],
+
+    'DLC2SprigganBurntRace': ['plant', 'strong willed', 'fire elemental'],
+    '_00VenerableSprigganBurntRace': ['plant', 'strong willed', 'fire elemental'],
+    
+    '_00FrostSprigganMatronRace': ['plant', 'strong willed', 'ice elemental'],
+
+    'AtronachStormRace': ['shock elemental', 'weak willed', 'supernatural', 'rocky'],
+    'AtronachStormRaceArnimaRed': ['shock elemental', 'weak willed', 'supernatural', 'rocky'],
+    '_00BoneStormRace': ['shock elemental', 'weak willed', 'supernatural', 'rocky'],
+
+    'TrollRace': ['furred', 'vascular', 'troll kin'],
+    'CYRTrollRiverRace': ['furred', 'vascular', 'troll kin'],
+    'CYRTrollSavageRace': ['furred', 'vascular', 'troll kin'],
+    'AKTrollMushroomRace': ['furred', 'vascular', 'troll kin'],
+    'AKTrollUderfrykteRace': ['furred', 'vascular', 'troll kin'],
+    
+    'DLC1TrollRaceArmored': ['furred', 'vascular', 'troll kin', 'armored'],
+    '_00DLC1SwampTrollRaceArmored': ['furred', 'vascular', 'troll kin', 'armored'],
+    
+    'AtronachWaterRace': ['aquatic', 'weak willed', 'supernatural', 'water elemental'],
+    
+    'AtronachWindRace': ['rocky', 'weak willed', 'supernatural', 'wind elemental'],
+    
+    '_SSPAtronachShadowRace': ['brittle', 'weak willed', 'supernatural', 'dark elemental'],
+    
+    'WerewolfBeastRace': ['furred', 'vascular', 'big'],
+    'BSKWereboarBeastRace': ['furred', 'vascular', 'big'],
+    'SpitefulEffigyRace': ['furred', 'vascular', 'big'],
+    'AKWerewolfFleshgrinderRace': ['furred', 'vascular', 'big'],
+    'AKWerewolfShoggothRace': ['furred', 'vascular', 'big'],
+    'AKWerewolfHungerRace': ['furred', 'vascular', 'big'],
+    'AKWerewolfDaedrothRace': ['furred', 'vascular', 'big'],
+    'AKWerewolfMimicChestRace': ['furred', 'vascular', 'big'],
+    '_00WerewolfKingBeastRace': ['furred', 'vascular', 'big'],
+    
+    'DLC2WerebearBeastRace': ['furred', 'vascular', 'big', 'vile'],
+    '_00WerebearBeastBlackRace': ['furred', 'vascular', 'big', 'vile'],
+    '_00WerebearBeastSnowRace': ['furred', 'vascular', 'big', 'vile'],
+
+    // note that wispmothers already get the ghostly perk
+    'WispRace': ['strong willed', 'supernatural', 'ice elemental'],
+    'AKWispMaraRace': ['strong willed', 'supernatural', 'ice elemental'],
+
+    'CYRWillotheWispRace': ['strong willed', 'supernatural', 'ghostly'],
+    
+    'WolfRace': ['furred', 'vascular'],
+    'CYRWolfRace': ['furred', 'vascular'],
+    '_00AspectRace': ['furred', 'vascular'],
+    
+    'NordRaceVampire': ['strong willed', 'undead', 'cave dwelling'],
+    'ArgonianRaceVampire': ['strong willed', 'undead', 'cave dwelling'],
+    'BretonRaceVampire': ['strong willed', 'undead', 'cave dwelling'],
+    'DarkElfRaceVampire': ['strong willed', 'undead', 'cave dwelling'],
+    'HighElfRaceVampire': ['strong willed', 'undead', 'cave dwelling'],
+    'ImperialRaceVampire': ['strong willed', 'undead', 'cave dwelling'],
+    'KhajiitRaceVampire': ['strong willed', 'undead', 'cave dwelling'],
+    'RedguardRaceVampire': ['strong willed', 'undead', 'cave dwelling'],
+    'WoodElfRaceVampire': ['strong willed', 'undead', 'cave dwelling'],
+    'OrcRaceVampire': ['strong willed', 'undead', 'cave dwelling'],
+    'ElderRaceVampire': ['strong willed', 'undead', 'cave dwelling'],
+    '0001cccVampireBeastRace': ['strong willed', 'undead', 'cave dwelling'],
+    '_00FeralVampRace': ['strong willed', 'undead', 'cave dwelling'],
+    
+    'DLC1SoulCairnSkeletonArmorRace': ['skeletal', 'armored', 'brittle'],
+
+    'Chaurus Hunter Fledgling': ['small'],
+
+    'EncMudcrabMedium': ['small'],
+
+    'EncMudcrabGiant': ['big'],
+
+    'ogdw_WerebearBeastRace_SnowcladA': ['furred', 'vascular', 'big'],
+    'ogdw_WerebearBeastRace_SnowcladB': ['furred', 'vascular', 'big'],
+    'ogdw_WerebearBeastRace_SnowcladC': ['furred', 'vascular', 'big'],
+    'ogdw_WerebearBeastRace_Torkild': ['furred', 'vascular', 'big'],
+    'ogdw_WerebearBeastRace_WildA': ['furred', 'vascular', 'big'],
+    'ogdw_WerebearBeastRace_WildB': ['furred', 'vascular', 'big'],
+    'ogdw_WerebearBeastRace_WildC': ['furred', 'vascular', 'big'],
+    'ogdw_WerewolfBeastRace_Aela': ['furred', 'vascular', 'big'],
+    'ogdw_WerewolfBeastRace_Akar': ['furred', 'vascular', 'big'],
+    'ogdw_WerewolfBeastRace_Arnbjorn': ['furred', 'vascular', 'big'],
+    'ogdw_WerewolfBeastRace_Farkas': ['furred', 'vascular', 'big'],
+    'ogdw_WerewolfBeastRace_Farmer': ['furred', 'vascular', 'big'],
+    'ogdw_WerewolfBeastRace_Hjordis': ['furred', 'vascular', 'big'],
+    'ogdw_WerewolfBeastRace_Majni': ['furred', 'vascular', 'big'],
+    'ogdw_WerewolfBeastRace_Rakel': ['furred', 'vascular', 'big'],
+    'ogdw_WerewolfBeastRace_Sinding': ['furred', 'vascular', 'big'],
+
+    '00_fzombie_002': ['undead', 'vile', 'cave dwelling', 'weak willed'],
+    '00_fzombie_001': ['undead', 'vile', 'cave dwelling', 'weak willed'],
+
+    'AA00FaithfulGearKnightRace': ['big', 'armored', 'dwarven machine'],
+    'AA00DSQRace': ['big', 'armored', 'dwarven machine'],
+    'AA00DFGKCentaurusRace': ['big', 'armored', 'dwarven machine'],
+    'AA00FaithfulGearKnightEnemyRace': ['big', 'armored', 'dwarven machine'],
+    'AA00FaithfulGearMaidenRace': ['big', 'armored', 'dwarven machine'],
+
+    'og_TrollFrostGrahlRace': ['furred', 'vascular', 'troll kin', 'fat', 'ice elemental', 'big'],
+    'og_TrollFrostGrahlRaceFollower': ['furred', 'vascular', 'troll kin', 'fat', 'ice elemental', 'big'],
+    'ogbm_BogmortFollowerRace': ['undead', 'vile', 'weak willed'],
+    'ogbm_BogmortRace': ['undead', 'vile', 'weak willed'],
+    'ogcd_DLC2HulkingDraugrRace': ['big', 'undead', 'vile', 'cave dwelling', 'weak willed'],
+    'ogcd_DraugrMagicRace': ['undead', 'vile', 'cave dwelling', 'weak willed'],
+    'ogcd_DraugrRace': ['undead', 'vile', 'cave dwelling', 'weak willed'],
+    'ogwh_Howler1Race': ['furred', 'vascular', 'big', 'supernatural', 'strong willed', 'undead', 'vile'],
+    'ogwh_Howler2Race': ['furred', 'vascular', 'big', 'supernatural', 'strong willed', 'undead', 'vile'],
+    'ogwh_Howler3Race': ['furred', 'vascular', 'big', 'supernatural', 'strong willed', 'undead', 'vile'],
+    'ogwh_Wendigo1Race': ['furred', 'vascular', 'big', 'supernatural', 'strong willed'],
+    'ogwh_Wendigo2Race': ['furred', 'vascular', 'big', 'supernatural', 'strong willed'],
+    'ogwh_Wendigo3Race': ['furred', 'vascular', 'big', 'supernatural', 'strong willed'],
+    'ogwh_Wendigo4Race': ['furred', 'vascular', 'big', 'supernatural', 'strong willed'],
+
+    'anvilGuarRace_SOK': ['vascular', 'aquatic', 'weak willed'],
+    'Sload_race': ['big', 'fat', 'vile', 'strong willed'],
+    'CentipedeRace': ['armored', 'venomous', 'vile', 'big', 'brittle'],
+    'HyenaRace': ['furred', 'vascular'],
+    'Sabretiger_race': ['furred', 'vascular', 'big'],
+    'AnvilPahmarRaceSabretiger': ['furred', 'vascular', 'big'],
+    'TheriumRace': ['fat', 'weak willed'],
+    'anvilImga_SOK': ['furred', 'vascular', 'big', 'fat', 'strong willed']
+}
