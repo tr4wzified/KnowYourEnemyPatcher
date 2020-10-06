@@ -73,9 +73,9 @@ namespace KnowYourEnemyMutagen
 
         private static IEnumerable<string> GetFromJson(string key, JObject jObject)
         {
-            return jObject.ContainsKey(key) ? jObject[key]!.Select(x => (string?) x).Where(x => x != null).Select(x => x!).ToList() : new List<string>();
+            return jObject.ContainsKey(key) ? jObject[key]!.Select(x => (string?)x).Where(x => x != null).Select(x => x!).ToList() : new List<string>();
         }
-        
+
         private static void RunPatch(SynthesisState<ISkyrimMod, ISkyrimModGetter> state)
         {
             if (!state.LoadOrder.ContainsKey(ModKey.FromNameAndExtension("know_your_enemy.esp")))
@@ -84,27 +84,29 @@ namespace KnowYourEnemyMutagen
                 return;
             }
 
-            string[] requiredFiles = {"creature_rules.json", "misc.json", "settings.json"};
+            string[] requiredFiles = { "creature_rules.json", "misc.json", "settings.json" };
             foreach (string file in requiredFiles)
             {
                 if (!File.Exists(file)) throw new Exception("Required file " + file + " does not exist! Make sure to copy all files over when installing the patcher, and don't run it from within an archive.");
             }
 
             // Retrieve all the perks that are going to be applied to NPCs in part 5
-            Dictionary<string, Perk> perks = PerkArray.Select(tuple =>
+            Dictionary<string, Perk> perks = PerkArray
+                .Select(tuple =>
                 {
                     var (key, id) = tuple;
                     state.LinkCache.TryLookup<IPerkGetter>(new FormKey("know_your_enemy.esp", id), out var perk);
                     if (perk != null) return (key, perk: perk.DeepCopy());
                     else throw new Exception("Failed to find perk with key: " + key + " and id " + id);
-                }).Where(x => x.perk != null)
+                })
+                .Where(x => x.perk != null)
                 .ToDictionary(x => x.key, x => x.perk!, StringComparer.OrdinalIgnoreCase);
-            
+
             // Reading JSON and converting it to a normal list because .Contains() is weird in Newtonsoft.JSON
             JObject misc = JObject.Parse(File.ReadAllText("misc.json"));
             JObject settings = JObject.Parse(File.ReadAllText("settings.json"));
-            var effectIntensity = (float) settings["effect_intensity"]!;
-            var patchSilverPerk = (bool) settings["patch_silver_perk"]!;
+            var effectIntensity = (float)settings["effect_intensity"]!;
+            var patchSilverPerk = (bool)settings["patch_silver_perk"]!;
             Console.WriteLine("*** DETECTED SETTINGS ***");
             Console.WriteLine("patch_silver_perk: " + patchSilverPerk);
             Console.WriteLine("effect_intensity: " + effectIntensity);
@@ -179,8 +181,8 @@ namespace KnowYourEnemyMutagen
                     foreach (var eff in s.Effects)
                     {
                         eff.BaseEffect.TryResolve(state.LinkCache, out var baseEffect);
-                        if (baseEffect?.EditorID == null 
-                            || !resistancesAndWeaknesses.Contains(baseEffect.EditorID) 
+                        if (baseEffect?.EditorID == null
+                            || !resistancesAndWeaknesses.Contains(baseEffect.EditorID)
                             || eff.Data == null) continue;
                         var currentMagnitude = eff.Data.Magnitude;
                         eff.Data.Magnitude = AdjustMagicResist(currentMagnitude, effectIntensity);
@@ -188,7 +190,7 @@ namespace KnowYourEnemyMutagen
                     }
                 }
             }
-            
+
             // Part 3
             // Edit the effect of silver weapons
 
@@ -207,7 +209,7 @@ namespace KnowYourEnemyMutagen
                         kyePerk.Effects.Clear();
                         foreach (var aPerkEffectGetter in dummySilverPerk.Effects)
                         {
-                            var eff = (APerkEffect) aPerkEffectGetter;
+                            var eff = (APerkEffect)aPerkEffectGetter;
                             kyePerk.Effects.Add(eff);
                         }
 
@@ -215,7 +217,7 @@ namespace KnowYourEnemyMutagen
                     }
                 }
             }
-            
+
             // Part 4
             // Adjust traits to accommodate CACO if present
             if (state.LoadOrder.ContainsKey(ModKey.FromNameAndExtension("Complete Alchemy & Cooking Overhaul.esp")))
