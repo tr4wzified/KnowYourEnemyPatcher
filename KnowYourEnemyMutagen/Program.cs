@@ -190,7 +190,7 @@ namespace KnowYourEnemyMutagen
                             || eff.Data == null) continue;
                         var currentMagnitude = eff.Data.Magnitude;
                         eff.Data.Magnitude = AdjustMagicResist(currentMagnitude, effectIntensity);
-                        state.PatchMod.Spells.Add(s);
+                        state.PatchMod.Spells.Set(s);
                     }
                 }
             }
