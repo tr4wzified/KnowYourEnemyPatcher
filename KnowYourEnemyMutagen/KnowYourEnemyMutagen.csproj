@@ -13,13 +13,13 @@
     </ItemGroup>
 
     <ItemGroup>
-      <None Update="creature_rules.json">
+      <None Update="Data\creature_rules.json">
         <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       </None>
-      <None Update="misc.json">
+      <None Update="Data\misc.json">
         <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       </None>
-      <None Update="settings.json">
+      <None Update="Data\settings.json">
         <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       </None>
     </ItemGroup>
