@@ -128,17 +128,22 @@ namespace KnowYourEnemyMutagen
             foreach (var spell in state.LoadOrder.PriorityOrder.WinningOverrides<ISpellGetter>())
             {
                 if (spell.EditorID == null || !abilitiesToClean.Contains(spell.EditorID)) continue;
-                var modifiedSpell = state.PatchMod.Spells.GetOrAddAsOverride(spell);
+                var modifiedSpell = spell.DeepCopy();
+                bool spellModified = false;
                 foreach (var effect in modifiedSpell.Effects)
                 {
                     effect.BaseEffect.TryResolve(state.LinkCache, out var baseEffect);
                     if (baseEffect?.EditorID == null) continue;
                     if (!resistancesAndWeaknesses.Contains(baseEffect.EditorID)) continue;
                     if (effect.Data != null)
+                    {
                         effect.Data.Magnitude = 0;
+                        spellModified = true;
+                    }
                     else
                         Console.WriteLine("Error setting Effect Magnitude - DATA was null!");
                 }
+                if (spellModified) state.PatchMod.Spells.Add(modifiedSpell);
             }
 
             // Part 1b
