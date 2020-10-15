@@ -83,12 +83,21 @@ namespace KnowYourEnemyMutagen
             if (!state.LoadOrder.ContainsKey(KnowYourEnemy))
                 throw new Exception("ERROR: Know Your Enemy not detected in load order. You need to install KYE prior to running this patcher!");
 
-            Console.WriteLine(state.ExtraSettingsDataPath);
             string[] requiredFiles = {@"\creature_rules.json", @"\misc.json", @"\settings.json"};
             string[] foundFiles = Directory.GetFiles(state.ExtraSettingsDataPath);
             if (!requiredFiles.SequenceEqual(foundFiles))
-                throw new Exception("Missing required files! Make sure to copy all files over when installing the patcher, and don't run it from within an archive.");
-
+            {
+                Console.WriteLine("ExtraSettingsDataPath: " + state.ExtraSettingsDataPath);
+                foreach (string file in requiredFiles)
+                {
+                    Console.WriteLine("Required file: " + file);
+                }
+                foreach (string file in foundFiles)
+                {
+                    Console.WriteLine("Found file: " + file);
+                }
+                    throw new Exception("Missing required files! Make sure to copy all files over when installing the patcher, and don't run it from within an archive.");
+            }
             // Retrieve all the perks that are going to be applied to NPCs in part 5
             Dictionary<string, FormKey> perks = PerkArray
                 .Select(tuple =>
