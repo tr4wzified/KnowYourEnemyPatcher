@@ -5,10 +5,10 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="Mutagen.Bethesda" Version="0.18.1" />
+        <PackageReference Include="Mutagen.Bethesda" Version="0.18.6" />
         <PackageReference Include="Mutagen.Bethesda.FormKeys.SkyrimSE" Version="1.0.0" />
-        <PackageReference Include="Mutagen.Bethesda.Kernel" Version="0.18.1" />
-        <PackageReference Include="Mutagen.Bethesda.Synthesis" Version="0.9.1" />
+        <PackageReference Include="Mutagen.Bethesda.Kernel" Version="0.18.6" />
+        <PackageReference Include="Mutagen.Bethesda.Synthesis" Version="0.10.4" />
         <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
     </ItemGroup>
 
