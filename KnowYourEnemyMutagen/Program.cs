@@ -161,15 +161,26 @@ namespace KnowYourEnemyMutagen
             {
                 foreach (var perk in state.LoadOrder.PriorityOrder.WinningOverrides<IPerkGetter>())
                 {
+                    bool perkModified = false;
                     if (perk.EditorID == null || !kyePerkNames.Contains(perk.EditorID) || !perk.Effects.Any()) continue;
-                    foreach (var eff in perk.Effects)
+                    Console.WriteLine("Checking Perk " + perk.EditorID);
+                    Perk perkCopy = perk.DeepCopy();
+                    foreach (var eff in perkCopy.Effects)
                     {
+                        Console.WriteLine("Looping over effect");
                         if (!(eff is PerkEntryPointModifyValue modValue)) continue;
-                        if (modValue.EntryPoint != APerkEntryPointEffect.EntryType.ModIncomingDamage) continue;
-                        var currentMagnitude = modValue.Value;
-                        modValue.Value = AdjustDamageMod(currentMagnitude, effectIntensity);
-                        modValue.Modification = PerkEntryPointModifyValue.ModificationType.Set;
+                        Console.WriteLine("Effect is a PerkEntryPointModifyValue. Continuing checks");
+                        if (modValue.EntryPoint == APerkEntryPointEffect.EntryType.ModIncomingDamage || modValue.EntryPoint == APerkEntryPointEffect.EntryType.ModAttackDamage)
+                        {
+                            Console.WriteLine("Effect is IncomingDamage EntryType, adjust valeus");
+                            var currentMagnitude = modValue.Value;
+                            modValue.Value = AdjustDamageMod(currentMagnitude, effectIntensity);
+                            modValue.Modification = PerkEntryPointModifyValue.ModificationType.Set;
+                            perkModified = true;
+                        }
+                        else continue;
                     }
+                    if (perkModified) state.PatchMod.Perks.Add(perkCopy);
                 }
 
                 // Part 2b
