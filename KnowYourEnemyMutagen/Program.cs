@@ -167,12 +167,9 @@ namespace KnowYourEnemyMutagen
                     Perk perkCopy = perk.DeepCopy();
                     foreach (var eff in perkCopy.Effects)
                     {
-                        Console.WriteLine("Looping over effect");
                         if (!(eff is PerkEntryPointModifyValue modValue)) continue;
-                        Console.WriteLine("Effect is a PerkEntryPointModifyValue. Continuing checks");
                         if (modValue.EntryPoint == APerkEntryPointEffect.EntryType.ModIncomingDamage || modValue.EntryPoint == APerkEntryPointEffect.EntryType.ModAttackDamage)
                         {
-                            Console.WriteLine("Effect is IncomingDamage EntryType, adjust valeus");
                             var currentMagnitude = modValue.Value;
                             modValue.Value = AdjustDamageMod(currentMagnitude, effectIntensity);
                             modValue.Modification = PerkEntryPointModifyValue.ModificationType.Set;
