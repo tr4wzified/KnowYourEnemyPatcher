@@ -94,12 +94,12 @@ namespace KnowYourEnemyMutagen
                 if (!File.Exists(f))
                 {
                     failed = true;
-                    System.Console.Error.WriteLine($"Missing {f}");
+                    System.Console.Error.WriteLine($"ERROR: Missing required file {f}");
                 }
             }
             if (failed)
             {
-                throw new Exception("Missing some required files! Make sure to copy all files over when installing the patcher, and don't run it from within an archive.");
+                throw new Exception($"Missing required files in {state.ExtraSettingsDataPath}! Make sure to copy all files over when installing the patcher, and don't run it from within an archive.");
             }
             // Retrieve all the perks that are going to be applied to NPCs in part 5
             Dictionary<string, FormKey> perks = PerkArray
