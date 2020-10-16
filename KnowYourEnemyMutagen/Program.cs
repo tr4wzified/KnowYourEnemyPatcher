@@ -83,20 +83,23 @@ namespace KnowYourEnemyMutagen
             if (!state.LoadOrder.ContainsKey(KnowYourEnemy))
                 throw new Exception("ERROR: Know Your Enemy not detected in load order. You need to install KYE prior to running this patcher!");
 
-            string[] requiredFiles = {@"\creature_rules.json", @"\misc.json", @"\settings.json"};
-            string[] foundFiles = Directory.GetFiles(state.ExtraSettingsDataPath);
-            if (!requiredFiles.SequenceEqual(foundFiles))
+            var creatureRulesPath = Path.Combine(state.ExtraSettingsDataPath, "creature_rules.json");
+            var miscPath = Path.Combine(state.ExtraSettingsDataPath, "misc.json");
+            var settingsPath = Path.Combine(state.ExtraSettingsDataPath, "settings.json");
+            bool failed = false;
+            foreach (var f in creatureRulesPath.AsEnumerable()
+                .And(miscPath)
+                .And(settingsPath))
             {
-                Console.WriteLine("ExtraSettingsDataPath: " + state.ExtraSettingsDataPath);
-                foreach (string file in requiredFiles)
+                if (!File.Exists(f))
                 {
-                    Console.WriteLine("Required file: " + file);
+                    failed = true;
+                    System.Console.Error.WriteLine($"Missing {f}");
                 }
-                foreach (string file in foundFiles)
-                {
-                    Console.WriteLine("Found file: " + file);
-                }
-                    throw new Exception("Missing required files! Make sure to copy all files over when installing the patcher, and don't run it from within an archive.");
+            }
+            if (failed)
+            {
+                throw new Exception("Missing some required files! Make sure to copy all files over when installing the patcher, and don't run it from within an archive.");
             }
             // Retrieve all the perks that are going to be applied to NPCs in part 5
             Dictionary<string, FormKey> perks = PerkArray
@@ -115,8 +118,8 @@ namespace KnowYourEnemyMutagen
                 .ToDictionary(x => x.key, x => x.perk, StringComparer.OrdinalIgnoreCase);
 
             // Reading JSON and converting it to a normal list because .Contains() is weird in Newtonsoft.JSON
-            JObject misc = JObject.Parse(File.ReadAllText(state.ExtraSettingsDataPath + @"\misc.json"));
-            JObject settings = JObject.Parse(File.ReadAllText(state.ExtraSettingsDataPath + @"\settings.json"));
+            JObject misc = JObject.Parse(File.ReadAllText(miscPath));
+            JObject settings = JObject.Parse(File.ReadAllText(settingsPath));
             var effectIntensity = (float)settings["effect_intensity"]!;
             var patchSilverPerk = (bool)settings["patch_silver_perk"]!;
             Console.WriteLine("*** DETECTED SETTINGS ***");
@@ -130,7 +133,7 @@ namespace KnowYourEnemyMutagen
             List<string> kyePerkNames = GetFromJson("kye_perk_names", misc).ToList();
             List<string> kyeAbilityNames = GetFromJson("kye_ability_names", misc).ToList();
 
-            Dictionary<string, string[]> creatureRules = JsonConvert.DeserializeObject<Dictionary<string, string[]>>(File.ReadAllText(state.ExtraSettingsDataPath + @"\creature_rules.json"));
+            Dictionary<string, string[]> creatureRules = JsonConvert.DeserializeObject<Dictionary<string, string[]>>(File.ReadAllText(creatureRulesPath));
 
             // Part 1a
             // Removing other magical resistance/weakness systems
