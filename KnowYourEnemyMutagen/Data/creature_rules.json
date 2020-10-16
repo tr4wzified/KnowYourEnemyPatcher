@@ -486,5 +486,19 @@
     'Sabretiger_race': ['furred', 'vascular', 'big'],
     'AnvilPahmarRaceSabretiger': ['furred', 'vascular', 'big'],
     'TheriumRace': ['fat', 'weak willed'],
-    'anvilImga_SOK': ['furred', 'vascular', 'big', 'fat', 'strong willed']
+    'anvilImga_SOK': ['furred', 'vascular', 'big', 'fat', 'strong willed'],
+    
+    //Draugr Upgrades and Improvements
+    'zzDraugrFlameRace': ['undead', 'vile', 'cave dwelling', 'weak willed'],
+    'zzDraugrFrostRace': ['undead', 'vile', 'cave dwelling', 'weak willed'],
+    'zzDraugrRightEyeRace': ['undead', 'vile', 'cave dwelling', 'weak willed'],
+    'zzDraugrDiseasedRace': ['undead', 'vile', 'cave dwelling', 'weak willed'],
+    'zzDraugrShockRace': ['undead', 'vile', 'cave dwelling', 'weak willed'],
+    'zzTotemWolfRace': ['furred', 'vascular'],
+    'zzTotemBearRace': ['big', 'furred', 'vascular'],
+    'zzTotemSabreCatRace': ['big', 'furred', 'vascular'],
+    'zzTotemBoarRace': ['big', 'furred'],
+    'zzTotemSkeeverRace': ['furred', 'small', 'vile'],
+    'zzTotemDeerRace': ['furred'],
+    'zzDraugrCSWarriorRace01': ['undead', 'vile', 'cave dwelling', 'weak willed']
 }
