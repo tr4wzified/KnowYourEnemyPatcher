@@ -189,7 +189,7 @@ namespace KnowYourEnemyMutagen
                         {
                             var currentMagnitude = modValue.Value;
                             modValue.Value = AdjustDamageMod(currentMagnitude, effectIntensity);
-                            modValue.Modification = PerkEntryPointModifyValue.ModificationType.Set;
+                            modValue.Modification = PerkEntryPointModifyValue.ModificationType.Multiply;
                             perkModified = true;
                         }
                         else continue;
