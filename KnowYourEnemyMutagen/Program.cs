@@ -9,12 +9,15 @@ using Alphaleonis.Win32.Filesystem;
 using Mutagen.Bethesda.FormKeys.SkyrimSE;
 using Newtonsoft.Json;
 using Noggog;
+using System.Reflection.Metadata.Ecma335;
 
 namespace KnowYourEnemyMutagen
 {
     public static class Program
     {
-        static ModKey KnowYourEnemy = ModKey.FromNameAndExtension("know_your_enemy.esp");
+        private static ModKey KnowYourEnemy = ModKey.FromNameAndExtension("know_your_enemy.esp");
+        private static ModKey KnowYourElements = ModKey.FromNameAndExtension("Know Your Elements.esp");
+        private static ModKey LightAndShadow = ModKey.FromNameAndExtension("KYE Light and Shadow.esp");
 
         public static int Main(string[] args)
         {
@@ -46,31 +49,35 @@ namespace KnowYourEnemyMutagen
             return magnitude == 0 ? magnitude : magnitude * scale;
         }
 
-        private static readonly (string Keywords, uint Id)[] PerkArray = {
-            ("fat", 0x00AA5E),
-            ("big", 0x00AA60),
-            ("small", 0x00AA61),
-            ("armored", 0x00AA62),
-            ("undead", 0x00AA63),
-            ("plant", 0x00AA64),
-            ("skeletal", 0x00AA65),
-            ("brittle", 0x00AA66),
-            ("dwarven machine", 0x00AA67),
-            ("ghostly", 0x02E171),
-            ("furred", 0x047680),
-            ("supernatural", 0x047681),
-            ("venomous", 0x047682),
-            ("ice elemental", 0x047683),
-            ("fire elemental", 0x047684),
-            ("shock elemental", 0x047685),
-            ("vile", 0x047686),
-            ("troll kin", 0x047687),
-            ("weak willed", 0x047688),
-            ("strong willed", 0x047689),
-            ("cave dwelling", 0x04768A),
-            ("vascular", 0x04768B),
-            ("aquatic", 0x04768C),
-            ("rocky", 0x04C78E)
+        private static readonly (ModKey mod, string Keywords, uint Id)[] PerkArray = {
+            (KnowYourEnemy, "fat", 0x00AA5E),
+            (KnowYourEnemy, "big", 0x00AA60),
+            (KnowYourEnemy, "small", 0x00AA61),
+            (KnowYourEnemy, "armored", 0x00AA62),
+            (KnowYourEnemy, "undead", 0x00AA63),
+            (KnowYourEnemy, "plant", 0x00AA64),
+            (KnowYourEnemy, "skeletal", 0x00AA65),
+            (KnowYourEnemy, "brittle", 0x00AA66),
+            (KnowYourEnemy, "dwarven machine", 0x00AA67),
+            (KnowYourEnemy, "ghostly", 0x02E171),
+            (KnowYourEnemy, "furred", 0x047680),
+            (KnowYourEnemy, "supernatural", 0x047681),
+            (KnowYourEnemy, "venomous", 0x047682),
+            (KnowYourEnemy, "ice elemental", 0x047683),
+            (KnowYourEnemy, "fire elemental", 0x047684),
+            (KnowYourEnemy, "shock elemental", 0x047685),
+            (KnowYourEnemy, "vile", 0x047686),
+            (KnowYourEnemy, "troll kin", 0x047687),
+            (KnowYourEnemy, "weak willed", 0x047688),
+            (KnowYourEnemy, "strong willed", 0x047689),
+            (KnowYourEnemy, "cave dwelling", 0x04768A),
+            (KnowYourEnemy, "vascular", 0x04768B),
+            (KnowYourEnemy, "aquatic", 0x04768C),
+            (KnowYourEnemy, "rocky", 0x04C78E),
+            (KnowYourElements, "earth elemental", 0x005904),
+            (KnowYourElements, "water elemental", 0x00590B),
+            (KnowYourElements, "wind elemental", 0x00590C),
+            (LightAndShadow, "dark elemental", 0x005902)
         };
 
         private static IEnumerable<string> GetFromJson(string key, JObject jObject)
@@ -94,7 +101,7 @@ namespace KnowYourEnemyMutagen
                 if (!File.Exists(f))
                 {
                     failed = true;
-                    System.Console.Error.WriteLine($"ERROR: Missing required file {f}");
+                    Console.Error.WriteLine($"ERROR: Missing required file {f}");
                 }
             }
             if (failed)
@@ -103,16 +110,22 @@ namespace KnowYourEnemyMutagen
             }
             // Retrieve all the perks that are going to be applied to NPCs in part 5
             Dictionary<string, FormKey> perks = PerkArray
+                .Where(tuple =>
+                {
+                    var (modkey, key, id) = tuple;
+                    return state.LoadOrder.ContainsKey(modkey);
+                }
+                )
                 .Select(tuple =>
                 {
-                    var (key, id) = tuple;
-                    if (state.LinkCache.TryLookup<IPerkGetter>(KnowYourEnemy.MakeFormKey(id), out var perk))
+                    var (modkey, key, id) = tuple;
+                    if (state.LinkCache.TryLookup<IPerkGetter>(modkey.MakeFormKey(id), out var perk))
                     {
                         return (key, perk: perk.FormKey);
                     }
                     else
                     {
-                        throw new Exception("Failed to find perk with key: " + key + " and id " + id);
+                        throw new Exception("Failed to find perk with key: " + key + " and id " + id + "for modkey " + modkey.FileName);
                     }
                 })
                 .ToDictionary(x => x.key, x => x.perk, StringComparer.OrdinalIgnoreCase);
@@ -125,6 +138,8 @@ namespace KnowYourEnemyMutagen
             Console.WriteLine("*** DETECTED SETTINGS ***");
             Console.WriteLine("patch_silver_perk: " + patchSilverPerk);
             Console.WriteLine("effect_intensity: " + effectIntensity);
+            Console.WriteLine("Light and Shadow detected: " + state.LoadOrder.ContainsKey(LightAndShadow));
+            Console.WriteLine("Know Your Elements detected: " + state.LoadOrder.ContainsKey(KnowYourElements));
             Console.WriteLine("*************************");
 
             List<string> resistancesAndWeaknesses = GetFromJson("resistances_and_weaknesses", misc).ToList();
