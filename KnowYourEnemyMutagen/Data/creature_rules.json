@@ -488,7 +488,9 @@
     'TheriumRace': ['fat', 'weak willed'],
     'anvilImga_SOK': ['furred', 'vascular', 'big', 'fat', 'strong willed'],
 
+	// ---------------------------------------------------------------------
     // Everything after this is added in by a third party for additional mod compatibility. Remove the following lines if you wish to keep the original KYE patcher.
+	// ---------------------------------------------------------------------
     
     // Draugr Upgrades and Improvements
     'zzDraugrFlameRace': ['undead', 'vile', 'cave dwelling', 'weak willed'],
@@ -791,5 +793,27 @@
     'zzzCHAuroranBossRace': ['supernatural', 'strong willed'],
     'zzzCORedHagRace': ['undead', 'vile', 'strong willed'],
     'zzzCOClawlerRace': ['undead', 'vile', 'strong willed', 'cave dwelling'],
-    'zzzCOWitchWispRace': ['undead', 'strong willed']
+    'zzzCOWitchWispRace': ['undead', 'strong willed'],
+	
+	// Relics of Hyrule
+	'SilverCenturionRaceKinoRoH': ['big', 'dwarven machine'],
+    'SkulltulaGohmaRaceRoH': ['armored', 'venomous', 'vile', 'brittle', 'big'],
+    'SkulltulaGoldRaceRoH': ['armored', 'venomous', 'vile', 'brittle'],
+    'SkulltulaRaceRoH': ['armored', 'venomous', 'vile', 'brittle'],
+    'PestoRaceRoH': ['armored', 'venomous', 'vile', 'cave dwelling', 'brittle'],
+    'ScissorBeetleRaceRoH': ['armored', 'venomous', 'vile', 'cave dwelling', 'brittle'],
+    'StoneHinoxRaceRoH': ['ice elemental', 'weak willed', 'supernatural', 'big', 'brittle'],
+    'ForgottenRaceRoH': ['strong willed', 'supernatural'],
+    'KeeseRaceRoH': ['furred],
+    'DodongoRaceRoH': ['armored','cave dwelling','brittle'],
+    'WolfosRaceRoH':['furred', 'vascular', 'big'],
+    'HeroShadeRaceRoH':['undead', 'vile', 'cave dwelling', 'weak willed'],
+    'GreatFairyRace': ['strong willed', 'supernatural'],
+    'LizalfosRace':['armored','vascular','brittle'],
+    'RedeadRaceSummonRoH': ['undead', 'vile', 'cave dwelling', 'weak willed'],
+    'StalfosRaceSummonRoH': ['skeletal', 'brittle'],
+    'TrollRaceMoblinRoH': ['furred', 'vascular', 'troll kin'],
+    'BokoblinRaceRoH': ['vile', 'cave dwelling', 'vascular', 'venomous'],
+    'AtronachBlizzetaRaceRoH': ['shock elemental', 'weak willed', 'supernatural', 'rocky'],
+    'StalfosRaceRoH': ['skeletal', 'brittle']
 }
