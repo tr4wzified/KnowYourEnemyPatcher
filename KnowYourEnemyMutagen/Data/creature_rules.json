@@ -804,7 +804,7 @@
     'ScissorBeetleRaceRoH': ['armored', 'venomous', 'vile', 'cave dwelling', 'brittle'],
     'StoneHinoxRaceRoH': ['ice elemental', 'weak willed', 'supernatural', 'big', 'brittle'],
     'ForgottenRaceRoH': ['strong willed', 'supernatural'],
-    'KeeseRaceRoH': ['furred],
+    'KeeseRaceRoH': ['furred'],
     'DodongoRaceRoH': ['armored','cave dwelling','brittle'],
     'WolfosRaceRoH':['furred', 'vascular', 'big'],
     'HeroShadeRaceRoH':['undead', 'vile', 'cave dwelling', 'weak willed'],
