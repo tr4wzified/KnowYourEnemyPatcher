@@ -585,7 +585,7 @@
 	'zzzCHKnightOfNine08': ['undead', 'strong willed'],
 	'zzzCHKnightOfNine09': ['undead', 'strong willed'],
 	'zzzCHEncBrothersOfMarkhu1H01': ['undead', 'vile', 'weak willed'],
-	'zzzCHEncBoneHorse': ['undead', 'skeletal', weak willed'],
+	'zzzCHEncBoneHorse': ['undead', 'skeletal', 'weak willed'],
 	'zzzCHBossMaraCultist': ['big', 'undead', 'vile', 'strong willed', 'cave dwelling'],
 	'zzzCHEncMaraFollower01': ['undead', 'vile', 'strong willed', 'cave dwelling'],
 	'zzzCHBossArachne': ['big', 'undead', 'brittle', 'supernatural', 'venomous', 'vile', 'strong willed', 'cave dwelling'],
