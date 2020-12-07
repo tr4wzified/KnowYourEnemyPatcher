@@ -119,7 +119,7 @@ namespace KnowYourEnemyMutagen
                 .Select(tuple =>
                 {
                     var (modkey, key, id) = tuple;
-                    if (state.LinkCache.TryLookup<IPerkGetter>(modkey.MakeFormKey(id), out var perk))
+                    if (state.LinkCache.TryResolve<IPerkGetter>(modkey.MakeFormKey(id), out var perk))
                     {
                         return (key, perk: perk.FormKey);
                     }
@@ -242,9 +242,9 @@ namespace KnowYourEnemyMutagen
 
                 FormKey silverKey = Skyrim.Perk.SilverPerk;
                 FormKey dummySilverKey = KnowYourEnemy.MakeFormKey(0x0BBE10);
-                if (state.LinkCache.TryLookup<IPerkGetter>(silverKey, out var silverPerk))
+                if (state.LinkCache.TryResolve<IPerkGetter>(silverKey, out var silverPerk))
                 {
-                    if (state.LinkCache.TryLookup<IPerkGetter>(dummySilverKey, out var dummySilverPerk))
+                    if (state.LinkCache.TryResolve<IPerkGetter>(dummySilverKey, out var dummySilverPerk))
                     {
                         Perk kyePerk = silverPerk.DeepCopy();
                         kyePerk.Effects.Clear();
@@ -266,7 +266,7 @@ namespace KnowYourEnemyMutagen
                 Console.WriteLine("CACO detected! Adjusting kye_ab_undead and kye_ab_ghostly spells.");
                 var kyeAbGhostlyKey = KnowYourEnemy.MakeFormKey(0x060B93);
                 var kyeAbUndeadKey = KnowYourEnemy.MakeFormKey(0x00AA43);
-                if (state.LinkCache.TryLookup<ISpellGetter>(kyeAbGhostlyKey, out var kyeAbGhostly))
+                if (state.LinkCache.TryResolve<ISpellGetter>(kyeAbGhostlyKey, out var kyeAbGhostly))
                 {
                     Spell kyeAbGhostlyCaco = kyeAbGhostly.DeepCopy();
                     foreach (var eff in kyeAbGhostlyCaco.Effects)
@@ -283,7 +283,7 @@ namespace KnowYourEnemyMutagen
                     Console.WriteLine($"WARNING! CACO detected but failed to patch kye_ab_ghostly_caco spell. Do you have {KnowYourEnemy} active in the load order?");
                 }
 
-                if (state.LinkCache.TryLookup<ISpellGetter>(kyeAbUndeadKey, out var kyeAbUndead))
+                if (state.LinkCache.TryResolve<ISpellGetter>(kyeAbUndeadKey, out var kyeAbUndead))
                 {
                     Spell kyeAbUndeadCaco = kyeAbUndead.DeepCopy();
                     foreach (var eff in kyeAbUndeadCaco.Effects)
