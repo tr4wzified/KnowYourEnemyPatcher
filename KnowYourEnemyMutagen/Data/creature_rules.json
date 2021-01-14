@@ -795,8 +795,8 @@
     'zzzCOClawlerRace': ['undead', 'vile', 'strong willed', 'cave dwelling'],
     'zzzCOWitchWispRace': ['undead', 'strong willed'],
 	
-	// Relics of Hyrule
-	'SilverCenturionRaceKinoRoH': ['big', 'dwarven machine'],
+    // Relics of Hyrule
+    'SilverCenturionRaceKinoRoH': ['big', 'dwarven machine'],
     'SkulltulaGohmaRaceRoH': ['armored', 'venomous', 'vile', 'brittle', 'big'],
     'SkulltulaGoldRaceRoH': ['armored', 'venomous', 'vile', 'brittle'],
     'SkulltulaRaceRoH': ['armored', 'venomous', 'vile', 'brittle'],
@@ -815,5 +815,9 @@
     'TrollRaceMoblinRoH': ['furred', 'vascular', 'troll kin'],
     'BokoblinRaceRoH': ['vile', 'cave dwelling', 'vascular', 'venomous'],
     'AtronachBlizzetaRaceRoH': ['shock elemental', 'weak willed', 'supernatural', 'rocky'],
-    'StalfosRaceRoH': ['skeletal', 'brittle']
+    'StalfosRaceRoH': ['skeletal', 'brittle'],
+	
+    // Bogmort Monsters
+    'ogbm_BogmortRace': ['undead', 'vile', 'weak willed'],
+    'ogbm_BogmortFollowerRace': ['undead', 'vile', 'weak willed']
 }
