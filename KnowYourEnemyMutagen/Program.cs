@@ -363,8 +363,15 @@ namespace KnowYourEnemyMutagen
                         kyeNpc.Perks = new ExtendedList<PerkPlacement>();
                     foreach (string trait in traits)
                     {
-                        PerkPlacement p = new PerkPlacement() { Perk = perks[trait], Rank = 1 };
-                        kyeNpc.Perks.Add(p);
+                        try
+                        {
+                            PerkPlacement p = new PerkPlacement() { Perk = perks[trait], Rank = 1 };
+                            kyeNpc.Perks.Add(p);
+                        }
+                        catch (KeyNotFoundException e)
+                        {
+                            Console.WriteLine("Could not add the " + trait + " trait to NPC " + kyeNpc.EditorID + ". You may ignore this warning if you're running Shadow Spell Package without the KYE extension installed.");
+                        }
                     }
                     /* For debugging purposes
                     if (npc.Name != null && traits.Any())
