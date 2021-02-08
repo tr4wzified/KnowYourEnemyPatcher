@@ -5,11 +5,10 @@ using Mutagen.Bethesda;
 using Mutagen.Bethesda.Synthesis;
 using Mutagen.Bethesda.Skyrim;
 using Newtonsoft.Json.Linq;
-using Alphaleonis.Win32.Filesystem;
 using Mutagen.Bethesda.FormKeys.SkyrimSE;
 using Newtonsoft.Json;
 using Noggog;
-using System.Reflection.Metadata.Ecma335;
+using System.IO;
 
 namespace KnowYourEnemyMutagen
 {
