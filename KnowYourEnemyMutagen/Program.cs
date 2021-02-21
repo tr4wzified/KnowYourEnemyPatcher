@@ -347,11 +347,11 @@ namespace KnowYourEnemyMutagen
                     }
                 }
 
-                // If Ice Wraith add ghostly
+                // If Ice Wraith remove ghostly
                 if (npc.Name != null && npc.Name.ToString() == "Ice Wraith")
                 {
-                    if (!traits.Contains("ghostly"))
-                        traits.Add("ghostly");
+                    if (traits.Contains("ghostly"))
+                        traits.Remove("ghostly");
                 }
 
                 // Add perks
