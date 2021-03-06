@@ -3,5 +3,8 @@
   "Visibility": "Visible",
   "OneLineDescription": "Patches your mods to work with Know Your Enemy.",
   "LongDescription": "",
-  "PreferredAutoVersioning": "Default"
+  "PreferredAutoVersioning": "Default",
+  "RequiredMods": [
+    "know_your_enemy.esp"
+  ]
 }
