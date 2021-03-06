@@ -86,9 +86,6 @@ namespace KnowYourEnemyMutagen
 
         private static void RunPatch(SynthesisState<ISkyrimMod, ISkyrimModGetter> state)
         {
-            if (!state.LoadOrder.ContainsKey(KnowYourEnemy))
-                throw new Exception("ERROR: Know Your Enemy not detected in load order. You need to install KYE prior to running this patcher!");
-
             var creatureRulesPath = Path.Combine(state.ExtraSettingsDataPath, "creature_rules.json");
             var miscPath = Path.Combine(state.ExtraSettingsDataPath, "misc.json");
             var settingsPath = Path.Combine(state.ExtraSettingsDataPath, "settings.json");
