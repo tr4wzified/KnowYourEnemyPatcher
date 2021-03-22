@@ -9,29 +9,18 @@ using Mutagen.Bethesda.FormKeys.SkyrimSE;
 using Newtonsoft.Json;
 using Noggog;
 using System.IO;
+using System.Threading.Tasks;
 
 namespace KnowYourEnemyMutagen
 {
     public static class Program
     {
-        private static ModKey KnowYourEnemy = ModKey.FromNameAndExtension("know_your_enemy.esp");
-        private static ModKey KnowYourElements = ModKey.FromNameAndExtension("Know Your Elements.esp");
-        private static ModKey LightAndShadow = ModKey.FromNameAndExtension("KYE Light and Shadow.esp");
-
-        public static int Main(string[] args)
+        public static Task<int> Main(string[] args)
         {
-            return SynthesisPipeline.Instance.Patch<ISkyrimMod, ISkyrimModGetter>(
-                args,
-                RunPatch,
-                new UserPreferences
-                {
-                    ActionsForEmptyArgs = new RunDefaultPatcher
-                    {
-                        IdentifyingModKey = "know_your_enemy_patcher.esp",
-                        //BlockAutomaticExit = true,
-                        TargetRelease = GameRelease.SkyrimSE
-                    }
-                });
+            return SynthesisPipeline.Instance
+                .AddPatch<ISkyrimMod, ISkyrimModGetter>(RunPatch)
+                .SetTypicalOpen(GameRelease.SkyrimSE, "KnowYourEnemy_patcher.esp")
+                .Run(args);
         }
 
         private static float AdjustDamageMod(float magnitude, float scale)
@@ -48,35 +37,35 @@ namespace KnowYourEnemyMutagen
             return magnitude == 0 ? magnitude : magnitude * scale;
         }
 
-        private static readonly (ModKey mod, string Keywords, uint Id)[] PerkArray = {
-            (KnowYourEnemy, "fat", 0x00AA5E),
-            (KnowYourEnemy, "big", 0x00AA60),
-            (KnowYourEnemy, "small", 0x00AA61),
-            (KnowYourEnemy, "armored", 0x00AA62),
-            (KnowYourEnemy, "undead", 0x00AA63),
-            (KnowYourEnemy, "plant", 0x00AA64),
-            (KnowYourEnemy, "skeletal", 0x00AA65),
-            (KnowYourEnemy, "brittle", 0x00AA66),
-            (KnowYourEnemy, "dwarven machine", 0x00AA67),
-            (KnowYourEnemy, "ghostly", 0x02E171),
-            (KnowYourEnemy, "furred", 0x047680),
-            (KnowYourEnemy, "supernatural", 0x047681),
-            (KnowYourEnemy, "venomous", 0x047682),
-            (KnowYourEnemy, "ice elemental", 0x047683),
-            (KnowYourEnemy, "fire elemental", 0x047684),
-            (KnowYourEnemy, "shock elemental", 0x047685),
-            (KnowYourEnemy, "vile", 0x047686),
-            (KnowYourEnemy, "troll kin", 0x047687),
-            (KnowYourEnemy, "weak willed", 0x047688),
-            (KnowYourEnemy, "strong willed", 0x047689),
-            (KnowYourEnemy, "cave dwelling", 0x04768A),
-            (KnowYourEnemy, "vascular", 0x04768B),
-            (KnowYourEnemy, "aquatic", 0x04768C),
-            (KnowYourEnemy, "rocky", 0x04C78E),
-            (KnowYourElements, "earth elemental", 0x005904),
-            (KnowYourElements, "water elemental", 0x00590B),
-            (KnowYourElements, "wind elemental", 0x00590C),
-            (LightAndShadow, "dark elemental", 0x005902)
+        private static readonly (IFormLinkGetter<IPerkGetter> Link, string Keywords)[] PerkArray = {
+            (KnowYourEnemy.Perk.kye_perk_fat, "fat"),
+            (KnowYourEnemy.Perk.kye_perk_big, "big"),
+            (KnowYourEnemy.Perk.kye_perk_small, "small"),
+            (KnowYourEnemy.Perk.kye_perk_armored, "armored"),
+            (KnowYourEnemy.Perk.kye_perk_undead, "undead"),
+            (KnowYourEnemy.Perk.kye_perk_plant, "plant"),
+            (KnowYourEnemy.Perk.kye_perk_skeletal, "skeletal"),
+            (KnowYourEnemy.Perk.kye_perk_brittle, "brittle"),
+            (KnowYourEnemy.Perk.kye_perk_dwarven_machine, "dwarven machine"),
+            (KnowYourEnemy.Perk.kye_perk_ghostly, "ghostly"),
+            (KnowYourEnemy.Perk.kye_perk_furred, "furred"),
+            (KnowYourEnemy.Perk.kye_perk_supernatural, "supernatural"),
+            (KnowYourEnemy.Perk.kye_perk_venomous, "venomous"),
+            (KnowYourEnemy.Perk.kye_perk_ice_elemental, "ice elemental"),
+            (KnowYourEnemy.Perk.kye_perk_fire_elemental, "fire elemental"),
+            (KnowYourEnemy.Perk.kye_perk_shock_elemental, "shock elemental"),
+            (KnowYourEnemy.Perk.kye_perk_vile, "vile"),
+            (KnowYourEnemy.Perk.kye_perk_troll_kin, "troll kin"),
+            (KnowYourEnemy.Perk.kye_perk_weak_willed, "weak willed"),
+            (KnowYourEnemy.Perk.kye_perk_strong_willed, "strong willed"),
+            (KnowYourEnemy.Perk.kye_perk_cave_dwelling, "cave dwelling"),
+            (KnowYourEnemy.Perk.kye_perk_vascular, "vascular"),
+            (KnowYourEnemy.Perk.kye_perk_aquatic, "aquatic"),
+            (KnowYourEnemy.Perk.kye_perk_rocky, "rocky"),
+            (KnowYourElements.Perk.kye_perk_earth_elemental, "earth elemental"),
+            (KnowYourElements.Perk.kye_perk_water_elemental, "water elemental"),
+            (KnowYourElements.Perk.kye_perk_wind_elemental, "wind elemental"),
+            (LightAndShadow.Perk.kye_perk_dark_elemental, "dark elemental")
         };
 
         private static IEnumerable<string> GetFromJson(string key, JObject jObject)
@@ -84,9 +73,9 @@ namespace KnowYourEnemyMutagen
             return jObject.ContainsKey(key) ? jObject[key]!.Select(x => (string?)x).Where(x => x != null).Select(x => x!).ToList() : new List<string>();
         }
 
-        private static void RunPatch(SynthesisState<ISkyrimMod, ISkyrimModGetter> state)
+        private static void RunPatch(IPatcherState<ISkyrimMod, ISkyrimModGetter> state)
         {
-            if (!state.LoadOrder.ContainsKey(KnowYourEnemy))
+            if (!state.LoadOrder.ContainsKey(KnowYourEnemy.ModKey))
                 throw new Exception("ERROR: Know Your Enemy not detected in load order. You need to install KYE prior to running this patcher!");
 
             var creatureRulesPath = Path.Combine(state.ExtraSettingsDataPath, "creature_rules.json");
@@ -108,26 +97,12 @@ namespace KnowYourEnemyMutagen
                 throw new Exception($"Missing required files in {state.ExtraSettingsDataPath}! Make sure to copy all files over when installing the patcher, and don't run it from within an archive.");
             }
             // Retrieve all the perks that are going to be applied to NPCs in part 5
-            Dictionary<string, FormKey> perks = PerkArray
-                .Where(tuple =>
+            Dictionary<string, IFormLinkGetter<IPerkGetter>> perks = PerkArray
+                .Where(x =>
                 {
-                    var (modkey, key, id) = tuple;
-                    return state.LoadOrder.ContainsKey(modkey);
-                }
-                )
-                .Select(tuple =>
-                {
-                    var (modkey, key, id) = tuple;
-                    if (state.LinkCache.TryResolve<IPerkGetter>(modkey.MakeFormKey(id), out var perk))
-                    {
-                        return (key, perk: perk.FormKey);
-                    }
-                    else
-                    {
-                        throw new Exception("Failed to find perk with key: " + key + " and id " + id + "for modkey " + modkey.FileName);
-                    }
+                    return state.LoadOrder.ContainsKey(x.Link.FormKey.ModKey);
                 })
-                .ToDictionary(x => x.key, x => x.perk, StringComparer.OrdinalIgnoreCase);
+                .ToDictionary(x => x.Keywords, x => x.Link, StringComparer.OrdinalIgnoreCase);
 
             // Reading JSON and converting it to a normal list because .Contains() is weird in Newtonsoft.JSON
             JObject misc = JObject.Parse(File.ReadAllText(miscPath));
@@ -137,8 +112,8 @@ namespace KnowYourEnemyMutagen
             Console.WriteLine("*** DETECTED SETTINGS ***");
             Console.WriteLine("patch_silver_perk: " + patchSilverPerk);
             Console.WriteLine("effect_intensity: " + effectIntensity);
-            Console.WriteLine("Light and Shadow detected: " + state.LoadOrder.ContainsKey(LightAndShadow));
-            Console.WriteLine("Know Your Elements detected: " + state.LoadOrder.ContainsKey(KnowYourElements));
+            Console.WriteLine("Light and Shadow detected: " + state.LoadOrder.ContainsKey(LightAndShadow.ModKey));
+            Console.WriteLine("Know Your Elements detected: " + state.LoadOrder.ContainsKey(KnowYourElements.ModKey));
             Console.WriteLine("*************************");
 
             List<string> resistancesAndWeaknesses = GetFromJson("resistances_and_weaknesses", misc).ToList();
@@ -239,11 +214,9 @@ namespace KnowYourEnemyMutagen
                 if (state.LoadOrder.ContainsKey(ModKey.FromNameAndExtension("Skyrim Immersive Creatures.esp")))
                     Console.WriteLine("WARNING: Silver Perk is being patched, but Skyrim Immersive Creatures has been detected in your load order. Know Your Enemy's silver weapon effects will NOT work against new races added by SIC.");
 
-                FormKey silverKey = Skyrim.Perk.SilverPerk;
-                FormKey dummySilverKey = KnowYourEnemy.MakeFormKey(0x0BBE10);
-                if (state.LinkCache.TryResolve<IPerkGetter>(silverKey, out var silverPerk))
+                if (Skyrim.Perk.SilverPerk.TryResolve(state.LinkCache, out var silverPerk))
                 {
-                    if (state.LinkCache.TryResolve<IPerkGetter>(dummySilverKey, out var dummySilverPerk))
+                    if (KnowYourEnemy.Perk.DummySilverPerk.TryResolve(state.LinkCache, out var dummySilverPerk))
                     {
                         Perk kyePerk = silverPerk.DeepCopy();
                         kyePerk.Effects.Clear();
@@ -263,40 +236,38 @@ namespace KnowYourEnemyMutagen
             if (state.LoadOrder.ContainsKey(ModKey.FromNameAndExtension("Complete Alchemy & Cooking Overhaul.esp")))
             {
                 Console.WriteLine("CACO detected! Adjusting kye_ab_undead and kye_ab_ghostly spells.");
-                var kyeAbGhostlyKey = KnowYourEnemy.MakeFormKey(0x060B93);
-                var kyeAbUndeadKey = KnowYourEnemy.MakeFormKey(0x00AA43);
-                if (state.LinkCache.TryResolve<ISpellGetter>(kyeAbGhostlyKey, out var kyeAbGhostly))
+                if (KnowYourEnemy.Spell.kye_ab_ghostly.TryResolve(state.LinkCache, out var kyeAbGhostly))
                 {
                     Spell kyeAbGhostlyCaco = kyeAbGhostly.DeepCopy();
                     foreach (var eff in kyeAbGhostlyCaco.Effects)
                     {
                         if (eff.Data == null) continue;
                         if (!eff.BaseEffect.TryResolve(state.LinkCache, out var baseEffect)) continue;
-                        if (baseEffect.FormKey != Skyrim.MagicEffect.AbResistPoison) continue;
+                        if (!baseEffect.Equals(Skyrim.MagicEffect.AbResistPoison)) continue;
                         eff.Data.Magnitude = 0;
                         state.PatchMod.Spells.GetOrAddAsOverride(kyeAbGhostlyCaco);
                     }
                 }
                 else
                 {
-                    Console.WriteLine($"WARNING! CACO detected but failed to patch kye_ab_ghostly_caco spell. Do you have {KnowYourEnemy} active in the load order?");
+                    Console.WriteLine($"WARNING! CACO detected but failed to patch kye_ab_ghostly_caco spell. Do you have {KnowYourEnemy.ModKey} active in the load order?");
                 }
 
-                if (state.LinkCache.TryResolve<ISpellGetter>(kyeAbUndeadKey, out var kyeAbUndead))
+                if (KnowYourEnemy.Spell.kye_ab_undead.TryResolve(state.LinkCache, out var kyeAbUndead))
                 {
                     Spell kyeAbUndeadCaco = kyeAbUndead.DeepCopy();
                     foreach (var eff in kyeAbUndeadCaco.Effects)
                     {
                         if (eff.Data == null) continue;
                         if (!eff.BaseEffect.TryResolve(state.LinkCache, out var baseEffect)) continue;
-                        if (baseEffect.FormKey != Skyrim.MagicEffect.AbResistPoison) continue;
+                        if (!baseEffect.Equals(Skyrim.MagicEffect.AbResistPoison)) continue;
                         eff.Data.Magnitude = 0;
                         state.PatchMod.Spells.GetOrAddAsOverride(kyeAbUndeadCaco);
                     }
                 }
                 else
                 {
-                    Console.WriteLine($"WARNING! CACO detected but failed to patch kye_ab_undead_caco spell. Do you have {KnowYourEnemy} active in the load order?");
+                    Console.WriteLine($"WARNING! CACO detected but failed to patch kye_ab_undead_caco spell. Do you have {KnowYourEnemy.ModKey} active in the load order?");
                 }
             }
 
@@ -364,7 +335,7 @@ namespace KnowYourEnemyMutagen
                     {
                         try
                         {
-                            PerkPlacement p = new PerkPlacement() { Perk = perks[trait], Rank = 1 };
+                            PerkPlacement p = new PerkPlacement() { Perk = perks[trait].AsSetter(), Rank = 1 };
                             kyeNpc.Perks.Add(p);
                         }
                         catch (KeyNotFoundException e)
