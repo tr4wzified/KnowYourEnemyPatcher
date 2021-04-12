@@ -19,7 +19,7 @@ namespace KnowYourEnemyMutagen
         {
             return SynthesisPipeline.Instance
                 .AddPatch<ISkyrimMod, ISkyrimModGetter>(RunPatch)
-                .SetTypicalOpen(GameRelease.SkyrimSE, "KnowYourEnemy_patcher.esp")
+                .SetTypicalOpen(GameRelease.SkyrimSE, "KnowYourEnemyPatcher.esp")
                 .Run(args);
         }
 
@@ -122,7 +122,7 @@ namespace KnowYourEnemyMutagen
             List<string> kyePerkNames = GetFromJson("kye_perk_names", misc).ToList();
             List<string> kyeAbilityNames = GetFromJson("kye_ability_names", misc).ToList();
 
-            Dictionary<string, string[]> creatureRules = JsonConvert.DeserializeObject<Dictionary<string, string[]>>(File.ReadAllText(creatureRulesPath));
+            Dictionary<string, string[]> creatureRules = JsonConvert.DeserializeObject<Dictionary<string, string[]>>(File.ReadAllText(creatureRulesPath))!;
 
             // Part 1a
             // Removing other magical resistance/weakness systems
@@ -169,7 +169,6 @@ namespace KnowYourEnemyMutagen
                 {
                     bool perkModified = false;
                     if (perk.EditorID == null || !kyePerkNames.Contains(perk.EditorID) || !perk.Effects.Any()) continue;
-                    Console.WriteLine("Checking Perk " + perk.EditorID);
                     Perk perkCopy = perk.DeepCopy();
                     foreach (var eff in perkCopy.Effects)
                     {
@@ -289,7 +288,7 @@ namespace KnowYourEnemyMutagen
                 }
 
                 // If npc race is in creature_rules
-                if (npc.Race.TryResolve(state.LinkCache, out var race) && race.EditorID != null && creatureRules.ContainsKey(race.EditorID))
+                if (npc.Race.TryResolve(state.LinkCache, out var race) && race.EditorID != null && creatureRules!.ContainsKey(race.EditorID))
                 {
                     foreach (string trait in creatureRules[race.EditorID])
                     {
@@ -299,7 +298,7 @@ namespace KnowYourEnemyMutagen
                 }
 
                 // If npc name is in creature_rules
-                if (npc.Name != null && creatureRules.ContainsKey(npc.Name.ToString()!))
+                if (npc.Name != null && creatureRules!.ContainsKey(npc.Name.ToString()!))
                 {
                     foreach (string trait in creatureRules[npc.Name.ToString()!])
                     {
@@ -309,7 +308,7 @@ namespace KnowYourEnemyMutagen
                 }
 
                 // If npc EDID is in creature_rules
-                if (npc.EditorID != null && creatureRules.ContainsKey(npc.EditorID))
+                if (npc.EditorID != null && creatureRules!.ContainsKey(npc.EditorID))
                 {
                     foreach (string trait in creatureRules[npc.EditorID])
                     {
@@ -338,7 +337,7 @@ namespace KnowYourEnemyMutagen
                             PerkPlacement p = new PerkPlacement() { Perk = perks[trait].AsSetter(), Rank = 1 };
                             kyeNpc.Perks.Add(p);
                         }
-                        catch (KeyNotFoundException e)
+                        catch (KeyNotFoundException)
                         {
                             Console.WriteLine("Could not add the " + trait + " trait to NPC " + kyeNpc.EditorID + ". You may ignore this warning if you're running Shadow Spell Package without the KYE extension installed.");
                         }
