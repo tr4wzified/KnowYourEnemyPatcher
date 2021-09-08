@@ -183,7 +183,7 @@ namespace KnowYourEnemyMutagen
                             perkModified = true;
                         }
                     }
-                    if (perkModified) state.PatchMod.Perks.Add(perkCopy);
+                    if (perkModified) state.PatchMod.Perks.Set(perkCopy);
                 }
 
                 // Part 2b
