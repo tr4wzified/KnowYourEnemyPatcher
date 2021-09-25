@@ -146,7 +146,7 @@ namespace KnowYourEnemyMutagen
                     else
                         Console.WriteLine("Error setting Effect Magnitude - DATA was null!");
                 }
-                if (spellModified) state.PatchMod.Spells.Add(modifiedSpell);
+                if (spellModified) state.PatchMod.Spells.Set(modifiedSpell);
             }
 
             // Part 1b
