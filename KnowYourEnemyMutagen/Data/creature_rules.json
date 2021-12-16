@@ -1618,5 +1618,105 @@
   "mihailpsitasaurrace": [ "furred", "small" ],
   "mihaildicynodon": [ "furred", "small" ],
 
-  "mihailsuccubusrace": [ "supernatural", "strong willed" ]
+  "mihailsuccubusrace": [ "supernatural", "strong willed" ],
+  
+    // 3DNPC Races
+  
+  "WispRaceDUPLICATE001":  [ "strong willed", "supernatural", "ice elemental" ],
+  "DraugrRaceDUPLICATE001": [ "undead", "vile", "cave dwelling", "weak willed" ],
+  "WolfRaceDUPLICATE001": [ "furred", "vascular" ],
+  "DwarvenSpiderRaceDUPLICATE001": [ "dwarven machine", "small" ],
+  "HagravenRaceDUPLICATE001": [ "vile", "strong willed" ],
+  "SkeletonRaceDUPLICATE001": [ "skeletal", "weak willed", "brittle" ],
+  "WispGuardianRace3DNPC": [ "strong willed", "supernatural", "ice elemental" ],
+  
+  // LOTD Races
+  
+  "DBMwraithknightraceMIHAIL": [ "ghostly", "weak willed" ],
+  "DeathWeaverRace":  [ "undead", "strong willed", "vile" ],
+  "DeathweaverRace2": [ "vile", "cave dwelling", "vascular", "venomous" ],
+  "RaccoonRace": [ "furred", "vascular" ],
+  "EggmanRace": [ "dwarven machine", "small" ],
+  "DBM_PretorianRace": [ "big", "dwarven machine" ],
+
+ // Wheels of Lull Races
+ 
+ "_Lull_BigAtronach": [ "fire elemental", "weak willed", "supernatural" ],
+ "_Lull_BoilingSentinalRace": [ "ice elemental", "weak willed", "supernatural", "big", "brittle" ],
+ "_Lull_FamilymanRace": [ "armored", "venomous", "vile", "cave dwelling", "brittle" ],
+ "_Lull_BonestriderRace": [ "skeletal", "weak willed", "brittle" ],
+ "_Lull_MachinaryRace": [ "dwarven machine" ],
+ "_Lull_WhistlingKing": [ "big", "dwarven machine" ],
+ "_Lull_OldTho_Race": [ "big", "skeletal", "weak willed", "brittle" ],
+ "_Lull_GolemRace": [ "big" ],
+ 
+ // Wyrmstooth Races
+ 
+ "WTFaelorWolfRace": [ "furred", "vascular" ],
+ "WTVulomDragonPriestRace": [ "undead", "strong willed", "vile" ],
+ 
+ // Immersive encounters Races
+ 
+ "_SetteCowRace": [ "furred", "vascular" ],
+ "_SetteGiantRace": [ "big" ],
+ 
+ // Artifacts Revised Races
+ 
+ "aaaShockForgemasterRace": [ "big", "dwarven machine" ],
+ "aaaDLC1SoulCairnSkeletonArmorRace_PirateCaptain": [ "undead", "vile", "cave dwelling", "weak willed" ],
+ "aaaDLC1SoulCairnSoulWispRace_NoCollision": [ "strong willed", "supernatural", "ice elemental" ],
+ "aaaAshGuardianRace_Ashbourne": [ "weak willed", "supernatural" ],
+ "aaaDLC2LurkerRace_Fake": [ "big", "aquatic", "vile", "venomous" ],
+ 
+ // Haugbui Races
+ 
+ "BriDODraugrRaceOlaf": [ "undead", "vile", "cave dwelling", "weak willed" ],
+ "BriDOSkeletonRedEagleRace": [ "skeletal", "weak willed", "brittle" ],
+ 
+ // OBIS Races
+ 
+ "OBIS_mihailminotaurrace2": [ "big", "furred", "strong willed" ],
+ "OBIS_mihailminotaurrace1": [ "big", "furred", "strong willed" ],
+ 
+ // Animallica Races
+ 
+ "TigerRaceSlice": [ "furred", "vascular", "big" ],
+ "PantherRaceSlice": [ "furred", "vascular", "big" ],
+ "HyenaRaceSlice": [ "furred", "vascular" ],
+ "LionRaceSlice": [ "furred", "vascular", "big" ],
+ "LynxRace": [ "furred", "vascular" ],
+ "CatRaceSlice": [ "furred", "vascular" ],
+ "PheasantRaceSlice": [ "small", "weak willed" ],
+ "RhinoRaceSlide": [ "furred", "fat", "weak willed", "big" ],
+ 
+ // Teldryn Serious Races
+ 
+ "TSRMihailColossusRace": [ "big", "dwarven machine" ],
+ 
+ // Clockwork Races
+ 
+ "CLWGildedRace": [ "dwarven machine" ],
+ "CLWShadowRace": [ "supernatural", "ghostly" ],
+ 
+ // Real Bosses Races
+ 
+ "MOD_DragonPriestRace": [ "undead", "strong willed", "vile" ],
+ "MOD_DLC2AcolyteDragonPriestRace": [ "undead", "strong willed", "vile" ],
+ 
+ // Lucien Races
+ 
+ "aaaLucDLC1DwemerGargoyleRace": [ "dwarven machine" ],
+ "aaaLucDwemerWerewolfBeastRace": [ "big", "dwarven machine" ],
+ "aaaLucDwemerChaurusRace": [ "dwarven machine" ],
+ "aaaLucDweWarriorRace": [ "dwarven machine" ],
+ "aaaLucDweOverseerRace": [ "dwarven machine" ],
+ "JRmihailimprace": [ "small", "vile", "weak willed" ],
+ "JRmihailimpracechargedfire": [ "small", "vile", "weak willed", "fire elemental" ],
+ "JRmihailimpracechargedshock": [ "small", "vile", "weak willed", "shock elemental" ],
+ "JRmihailimpracebossfire": [ "small", "vile", "weak willed", "fire elemental" ],
+ "JRmihailimpracebossshock": [ "small", "vile", "weak willed", "shock elemental" ],
+ "JRmihailgrievousrace": [ "supernatural", "strong willed", "undead", "cave dwelling" ],
+ "JRmihailharvesterrace": [ "supernatural" ],
+ "JRmihailhungerrace": [ "supernatural" ]
+  
 }
