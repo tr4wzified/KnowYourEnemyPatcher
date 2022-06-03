@@ -1717,6 +1717,9 @@
  "JRmihailimpracebossshock": [ "small", "vile", "weak willed", "shock elemental" ],
  "JRmihailgrievousrace": [ "supernatural", "strong willed", "undead", "cave dwelling" ],
  "JRmihailharvesterrace": [ "supernatural" ],
- "JRmihailhungerrace": [ "supernatural" ]
+ "JRmihailhungerrace": [ "supernatural" ],
   
+  // Beast Skeletons Races
+  "ISS_BeastSkeletonRace": [ "skeletal", "weak willed", "brittle" ],
+  "ISS_RigidSkeletonBeastRace": [ "skeletal", "weak willed", "brittle" ]
 }
