@@ -9,12 +9,12 @@ namespace Mutagen.Bethesda.FormKeys.SkyrimSE
         public static class LeveledItem
         {
             private static FormLink<ILeveledItemGetter> Construct(uint id) => new FormLink<ILeveledItemGetter>(ModKey.MakeFormKey(id));
-            public static FormLink<ILeveledItemGetter> kye_book_basic => Construct(0xacaf3);
-            public static FormLink<ILeveledItemGetter> kye_book_advanced => Construct(0xacaf4);
-            public static FormLink<ILeveledItemGetter> kye_book_magic => Construct(0xacaf5);
-            public static FormLink<ILeveledItemGetter> kye_book_any => Construct(0xacaf6);
-            public static FormLink<ILeveledItemGetter> kye_book_any_physical_bias => Construct(0xacaf7);
-            public static FormLink<ILeveledItemGetter> kye_book_any_magic_bias => Construct(0xacaf8);
+            public static FormLink<ILeveledItemGetter> kye_book_basic => Construct(0x874);
+            public static FormLink<ILeveledItemGetter> kye_book_advanced => Construct(0x875);
+            public static FormLink<ILeveledItemGetter> kye_book_magic => Construct(0x876);
+            public static FormLink<ILeveledItemGetter> kye_book_any => Construct(0x877);
+            public static FormLink<ILeveledItemGetter> kye_book_any_physical_bias => Construct(0x878);
+            public static FormLink<ILeveledItemGetter> kye_book_any_magic_bias => Construct(0x879);
         }
     }
 }

@@ -9,15 +9,15 @@ namespace Mutagen.Bethesda.FormKeys.SkyrimSE
         public static class Keyword
         {
             private static FormLink<IKeywordGetter> Construct(uint id) => new FormLink<IKeywordGetter>(ModKey.MakeFormKey(id));
-            public static FormLink<IKeywordGetter> kye_armor_full => Construct(0xb6d03);
-            public static FormLink<IKeywordGetter> kye_armor_warm => Construct(0xb6d04);
-            public static FormLink<IKeywordGetter> kye_armor_leathery => Construct(0xb6d05);
-            public static FormLink<IKeywordGetter> kye_armor_brittle => Construct(0xb6d06);
-            public static FormLink<IKeywordGetter> kye_armor_nonconductive => Construct(0xb6d07);
-            public static FormLink<IKeywordGetter> kye_armor_thick => Construct(0xb6d08);
-            public static FormLink<IKeywordGetter> kye_armor_metal => Construct(0xb6d09);
-            public static FormLink<IKeywordGetter> kye_armor_layered => Construct(0xb6d0a);
-            public static FormLink<IKeywordGetter> kye_armor_deep => Construct(0xb6d0b);
+            //public static FormLink<IKeywordGetter> kye_armor_full => Construct(); Removed in KYE 7.0.0
+            public static FormLink<IKeywordGetter> kye_armor_warm => Construct(0x87c);
+            public static FormLink<IKeywordGetter> kye_armor_leathery => Construct(0x87d);
+            // public static FormLink<IKeywordGetter> kye_armor_brittle => Construct();  KYE 9.0.0 Merged it into nonconductive.
+            public static FormLink<IKeywordGetter> kye_armor_nonconductive => Construct(0x87e);
+            public static FormLink<IKeywordGetter> kye_armor_thick => Construct(0x87f);
+            public static FormLink<IKeywordGetter> kye_armor_metal => Construct(0x880);
+            public static FormLink<IKeywordGetter> kye_armor_layered => Construct(0x881);
+            public static FormLink<IKeywordGetter> kye_armor_deep => Construct(0x882);
         }
     }
 }

@@ -9,9 +9,9 @@ namespace Mutagen.Bethesda.FormKeys.SkyrimSE
         public static class MagicEffect
         {
             private static FormLink<IMagicEffectGetter> Construct(uint id) => new FormLink<IMagicEffectGetter>(ModKey.MakeFormKey(id));
-            public static FormLink<IMagicEffectGetter> kye_mgef_weakness_poison => Construct(0xaa1b);
-            public static FormLink<IMagicEffectGetter> kye_mgef_weakness_disease => Construct(0xaa1c);
-            public static FormLink<IMagicEffectGetter> kye_mgef_dummy => Construct(0x6ad97);
+            public static FormLink<IMagicEffectGetter> kye_mgef_weakness_poison => Construct(0x818);
+            public static FormLink<IMagicEffectGetter> kye_mgef_weakness_disease => Construct(0x819);
+            public static FormLink<IMagicEffectGetter> kye_mgef_dummy => Construct(0x848);
         }
     }
 }
